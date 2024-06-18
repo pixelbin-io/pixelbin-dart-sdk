@@ -5,6 +5,8 @@ import 'package:http/http.dart' as http;
 import 'package:path/path.dart' as path;
 import 'package:pixelbin/pixelbin_dart_sdk.dart';
 
+import 'async.dart';
+
 class SignedDetails {
   final String url;
   final Map<String, String> fields;
@@ -100,31 +102,35 @@ class Uploader {
       SignedDetails signedDetails, int chunkSize, int concurrency) async {
     final fileSize = await file.length();
     final chunkSizeInBytes = 1024 * chunkSize;
+    final semaphore = Semaphore(concurrency, onEachCompleted: (int milliseconds) {
+      print('Chunk uploaded in $milliseconds ms');
+    });
 
     var partNumber = 0;
     var offset = 0;
     var errorOccurred = false;
     var parts = <int>[];
 
+    List<Future<void>> uploadFutures = [];
+
     while (offset < fileSize && !errorOccurred) {
-      for (var i = 0; i < concurrency; i++) {
-        if (offset >= fileSize || errorOccurred) break;
+      final end = (offset + chunkSizeInBytes).clamp(0, fileSize);
+      final chunk = await readChunk(file, offset, end - offset);
 
-        partNumber++;
-        final end = (offset + chunkSizeInBytes).clamp(0, fileSize);
-        final chunk = await readChunk(file, offset, end - offset);
+      partNumber++;
+      final url = '${signedDetails.url}&partNumber=$partNumber';
+      final request = http.MultipartRequest('PUT', Uri.parse(url));
 
-        final url = '${signedDetails.url}&partNumber=$partNumber';
-        final request = http.MultipartRequest('PUT', Uri.parse(url));
+      signedDetails.fields.forEach((key, value) {
+        request.fields[key] = value;
+      });
 
-        signedDetails.fields.forEach((key, value) {
-          request.fields[key] = value;
-        });
+      request.files.add(
+          http.MultipartFile.fromBytes('file', chunk, filename: 'chunk'));
 
-        request.files.add(
-            http.MultipartFile.fromBytes('file', chunk, filename: 'chunk'));
+      final client = http.Client();
 
-        final client = http.Client();
+      uploadFutures.add(semaphore.withPermit(() async {
         final response = await client.send(request);
         final responseBody = await response.stream.bytesToString();
         print("Response: ${response.statusCode} $responseBody");
@@ -135,9 +141,12 @@ class Uploader {
           throw Exception(
               "Request Error: ${response.statusCode} $responseBody");
         }
-        offset = end;
-      }
+      }));
+
+      offset = end;
     }
+
+    await Future.wait(uploadFutures);
 
     if (!errorOccurred) {
       return completeMultipartUpload(

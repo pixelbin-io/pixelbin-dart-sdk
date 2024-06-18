@@ -51,7 +51,7 @@ void main() {
     final signedDetails = SignedDetails(url: url, fields: fields);
 
     final response =
-        await PixelBin.shared.upload(file: file, signedDetails: signedDetails);
+        await PixelBin.shared.upload(file: file, signedDetails: signedDetails, concurrency: 2, chunkSize: 100);
     print("Image: ${response?.encoded}");
   });
 }
