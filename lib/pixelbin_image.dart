@@ -4,7 +4,7 @@ class PixelBinImage {
   final String imagePath;
   final String cloudName;
   final String? zone;
-  final List<TransformationData> transformations;
+  List<TransformationData> transformations;
   final String host;
   final String version;
   final bool worker;
@@ -72,7 +72,11 @@ class PixelBinImage {
   }
 
   void addTransformation(TransformationData transformation) {
-    transformations.add(transformation);
+    transformations = [...transformations, transformation];
+  }
+
+  void addTransformations(List<TransformationData> transformations) {
+    transformations.addAll(transformations);
   }
 
   String get encoded {
