@@ -49,7 +49,8 @@ class Uploader {
         file,
       );
     } else if (signedDetails.url.contains("api.pixelbin")) {
-      return await multipartFileUpload(file, signedDetails, chunkSize, concurrency);
+      return await multipartFileUpload(
+          file, signedDetails, chunkSize, concurrency);
     } else {
       return await uploadToS3(
         signedDetails.url,
@@ -102,7 +103,8 @@ class Uploader {
       SignedDetails signedDetails, int chunkSize, int concurrency) async {
     final fileSize = await file.length();
     final chunkSizeInBytes = 1024 * chunkSize;
-    final semaphore = Semaphore(concurrency, onEachCompleted: (int milliseconds) {
+    final semaphore =
+        Semaphore(concurrency, onEachCompleted: (int milliseconds) {
       print('Chunk uploaded in $milliseconds ms');
     });
 
@@ -125,8 +127,8 @@ class Uploader {
         request.fields[key] = value;
       });
 
-      request.files.add(
-          http.MultipartFile.fromBytes('file', chunk, filename: 'chunk'));
+      request.files
+          .add(http.MultipartFile.fromBytes('file', chunk, filename: 'chunk'));
 
       final client = http.Client();
 
