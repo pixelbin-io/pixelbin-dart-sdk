@@ -5,17 +5,17 @@ Pixelbin Dart library helps you integrate Pixelbin with your Dart/Flutter Applic
 **Run this command:**
 - With Dart:
 ```dart
-dart pub add pixelbin
+dart pub add pixelbin-dart-sdk
 ```
 - With Flutter:
 ```dart
-flutter pub add pixelbin
+flutter pub add pixelbin-dart-sdk
 ```
 **OR**
 - This will add a line like this to your package's pubspec.yaml (and run an implicit dart pub get):
 ```dart
 dependencies:
-  pixelbin: ^latest_release_version
+  pixelbin-dart-sdk: ^latest_release_version
 ```
 ### Creating Image from URL or Cloud details
 ```dart
@@ -206,14 +206,14 @@ final t = Transformation.variationgenerator.generate(
 #### Supported Configuration
 | Parameter | Type | Default |
 | --------- | ---- | ------- |
-| foregroundType | enum: `general`, `ecommerce`, `car`, `human`, `object` | `general` |
+| industryType | enum: `general`, `ecommerce`, `car`, `human`, `object` | `general` |
 | addShadow | boolean | N/A |
 | refine | boolean | `true` |
 #### Usage Example
 ```dart
 final t = Transformation.erasebg.bg(
 
-    foregroundType: "general", 
+    industryType: "general", 
 
     addShadow: "", 
 
