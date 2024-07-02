@@ -5,17 +5,17 @@ Pixelbin Dart library helps you integrate Pixelbin with your Dart/Flutter Applic
 **Run this command:**
 - With Dart:
 ```dart
-dart pub add pixelbin-dart-sdk
+dart pub add pixelbin
 ```
 - With Flutter:
 ```dart
-flutter pub add pixelbin-dart-sdk
+flutter pub add pixelbin
 ```
 **OR**
 - This will add a line like this to your package's pubspec.yaml (and run an implicit dart pub get):
 ```dart
 dependencies:
-  pixelbin-dart-sdk: ^latest_release_version
+  pixelbin: ^latest_release_version
 ```
 ### Creating Image from URL or Cloud details
 ```dart
