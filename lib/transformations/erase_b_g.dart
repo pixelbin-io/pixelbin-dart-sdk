@@ -1,7 +1,7 @@
 import '../transformation_data.dart';
 
-/// Foreground type options: general, ecommerce, car, human, object
-enum Foregroundtype {
+/// Foreground Type options: general, ecommerce, car, human, object
+enum Industrytype {
   general('general'),
 
   ecommerce('ecommerce'),
@@ -14,17 +14,17 @@ enum Foregroundtype {
 
   final String value;
 
-  const Foregroundtype(this.value);
+  const Industrytype(this.value);
 }
 
 class EraseBG {
   /// Method for EraseBG Background Removal Module
-  /// @param Foreground Type Foreground type? (Default: general)
+  /// @param Industry Type Industry type? (Default: general)
   /// @param Add Shadow bool (Default: false)
   /// @param Refine bool (Default: true)
   /// @return TransformationData.
   TransformationData bg(
-    Foregroundtype? foregroundptype,
+    Industrytype? industryptype,
     bool? addshadow,
     bool? refinpe,
   ) {
@@ -32,8 +32,8 @@ class EraseBG {
 
     var values = <String, String>{};
 
-    if (foregroundptype != null) {
-      values['i'] = foregroundptype.value;
+    if (industryptype != null) {
+      values['i'] = industryptype.value;
     }
 
     if (addshadow != null) {

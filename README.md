@@ -206,14 +206,14 @@ final t = Transformation.variationgenerator.generate(
 #### Supported Configuration
 | Parameter | Type | Default |
 | --------- | ---- | ------- |
-| foregroundType | enum: `general`, `ecommerce`, `car`, `human`, `object` | `general` |
+| industryType | enum: `general`, `ecommerce`, `car`, `human`, `object` | `general` |
 | addShadow | boolean | N/A |
 | refine | boolean | `true` |
 #### Usage Example
 ```dart
 final t = Transformation.erasebg.bg(
 
-    foregroundType: "general", 
+    industryType: "general", 
 
     addShadow: "", 
 

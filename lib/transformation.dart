@@ -123,7 +123,7 @@ class Transformation {
 
   /// EraseBG Background Removal Module
   ///
-  /// @param foregroundptype Foreground type (Default: general)
+  /// @param industryptype Foreground Type (Default: general)
   ///
   /// @param addshadow Add Shadow (cars only) (Default: false)
   ///
@@ -131,11 +131,11 @@ class Transformation {
   ///
   /// @return The generated TransformationData.
   static TransformationData erasebg(
-      {Foregroundtype? foregroundptype = Foregroundtype.general,
+      {Industrytype? industryptype = Industrytype.general,
       bool? addshadow = false,
       bool? refinpe = true}) {
     // Call the generated class method
-    return EraseBG().bg(foregroundptype, addshadow, refinpe);
+    return EraseBG().bg(industryptype, addshadow, refinpe);
   }
 
   // GoogleVisionPlugin

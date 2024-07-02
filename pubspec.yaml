@@ -1,6 +1,6 @@
 name: pixelbin
 description: "Real-time image transformations with automatic optimization, image URL and storage for efficient image organization"
-version: 0.0.2
+version: 1.0.0
 homepage: "https://pixelbin.io"
 
 environment:
