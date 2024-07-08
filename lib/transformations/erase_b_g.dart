@@ -19,9 +19,13 @@ enum Industrytype {
 
 class EraseBG {
   /// Method for EraseBG Background Removal Module
+  ///
   /// @param Industry Type Industry type? (Default: general)
+  ///
   /// @param Add Shadow bool (Default: false)
+  ///
   /// @param Refine bool (Default: true)
+  ///
   /// @return TransformationData.
   TransformationData bg(
     Industrytype? industryptype,

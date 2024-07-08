@@ -2,7 +2,9 @@ import '../transformation_data.dart';
 
 class GoogleVisionPlugin {
   /// Method for Detect content and text in images
+  ///
   /// @param Maximum Labels int (Default: 5)
+  ///
   /// @return TransformationData.
   TransformationData detectLabels(
     int? maximumlabels,

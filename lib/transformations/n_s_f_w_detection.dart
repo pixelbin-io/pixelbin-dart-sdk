@@ -2,7 +2,9 @@ import '../transformation_data.dart';
 
 class NSFWDetection {
   /// Method for Detect NSFW content in images
+  ///
   /// @param Minimum Confidence double (Default: 0.5)
+  ///
   /// @return TransformationData.
   TransformationData detect(
     double? minpimumconfidence,

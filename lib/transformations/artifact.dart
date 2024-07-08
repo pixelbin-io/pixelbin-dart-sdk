@@ -2,6 +2,7 @@ import '../transformation_data.dart';
 
 class Artifact {
   /// Method for Artifact Removal Plugin
+  ///
   /// @return TransformationData.
   TransformationData remove() {
     // Determine if there are values to add to the dictionary
