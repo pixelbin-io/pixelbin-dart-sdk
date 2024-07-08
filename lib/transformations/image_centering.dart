@@ -2,7 +2,9 @@ import '../transformation_data.dart';
 
 class ImageCentering {
   /// Method for Image Centering Module
+  ///
   /// @param Distance percentage int (Default: 10)
+  ///
   /// @return TransformationData.
   TransformationData detect(
     int? distancepercentage,

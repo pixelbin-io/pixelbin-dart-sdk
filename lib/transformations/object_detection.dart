@@ -2,6 +2,7 @@ import '../transformation_data.dart';
 
 class ObjectDetection {
   /// Method for Detect bounding boxes of objects in the image
+  ///
   /// @return TransformationData.
   TransformationData detect() {
     // Determine if there are values to add to the dictionary
