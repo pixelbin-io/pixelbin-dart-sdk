@@ -61,13 +61,21 @@ enum Algorithm {
 
 class Resize {
   /// Method for Basic Transformations
+  ///
   /// @param height int (Default: 0)
+  ///
   /// @param width int (Default: 0)
+  ///
   /// @param fit Fit? (Default: cover)
+  ///
   /// @param background String (Default: "000000")
+  ///
   /// @param position Position? (Default: center)
+  ///
   /// @param algorithm Algorithm? (Default: lanczos3)
+  ///
   /// @param DPR double (Default: 1)
+  ///
   /// @return TransformationData.
   TransformationData resize(
     int? height,
@@ -116,7 +124,9 @@ class Resize {
 
 class Compress {
   /// Method for Basic Transformations
+  ///
   /// @param quality int (Default: 80)
+  ///
   /// @return TransformationData.
   TransformationData compress(
     int? quality,
@@ -150,13 +160,21 @@ enum Bordertype {
 
 class Extend {
   /// Method for Basic Transformations
+  ///
   /// @param top int (Default: 10)
+  ///
   /// @param left int (Default: 10)
+  ///
   /// @param bottom int (Default: 10)
+  ///
   /// @param right int (Default: 10)
+  ///
   /// @param background String (Default: "000000")
+  ///
   /// @param Border Type Border type? (Default: constant)
+  ///
   /// @param DPR double (Default: 1)
+  ///
   /// @return TransformationData.
   TransformationData extend(
     int? top,
@@ -205,11 +223,17 @@ class Extend {
 
 class Extract {
   /// Method for Basic Transformations
+  ///
   /// @param top int (Default: 10)
+  ///
   /// @param left int (Default: 10)
+  ///
   /// @param height int (Default: 50)
+  ///
   /// @param width int (Default: 20)
+  ///
   /// @param Bounding Box String
+  ///
   /// @return TransformationData.
   TransformationData extract(
     int? top,
@@ -248,7 +272,9 @@ class Extract {
 
 class Trim {
   /// Method for Basic Transformations
+  ///
   /// @param threshold int (Default: 10)
+  ///
   /// @return TransformationData.
   TransformationData trim(
     int? threshold,
@@ -267,8 +293,11 @@ class Trim {
 
 class Rotate {
   /// Method for Basic Transformations
+  ///
   /// @param angle int (Default: 0)
+  ///
   /// @param background String (Default: "000000")
+  ///
   /// @return TransformationData.
   TransformationData rotate(
     int? angle,
@@ -292,6 +321,7 @@ class Rotate {
 
 class Flip {
   /// Method for Basic Transformations
+  ///
   /// @return TransformationData.
   TransformationData flip() {
     // Determine if there are values to add to the dictionary
@@ -304,6 +334,7 @@ class Flip {
 
 class Flop {
   /// Method for Basic Transformations
+  ///
   /// @return TransformationData.
   TransformationData flop() {
     // Determine if there are values to add to the dictionary
@@ -316,7 +347,9 @@ class Flop {
 
 class Sharpen {
   /// Method for Basic Transformations
+  ///
   /// @param sigma double (Default: 1.5)
+  ///
   /// @return TransformationData.
   TransformationData sharpen(
     double? sigma,
@@ -335,7 +368,9 @@ class Sharpen {
 
 class Median {
   /// Method for Basic Transformations
+  ///
   /// @param size int (Default: 3)
+  ///
   /// @return TransformationData.
   TransformationData median(
     int? size,
@@ -354,8 +389,11 @@ class Median {
 
 class Blur {
   /// Method for Basic Transformations
+  ///
   /// @param sigma double (Default: 0.3)
+  ///
   /// @param DPR double (Default: 1)
+  ///
   /// @return TransformationData.
   TransformationData blur(
     double? sigma,
@@ -379,7 +417,9 @@ class Blur {
 
 class Flatten {
   /// Method for Basic Transformations
+  ///
   /// @param background String (Default: "000000")
+  ///
   /// @return TransformationData.
   TransformationData flatten(
     String? background,
@@ -398,6 +438,7 @@ class Flatten {
 
 class Negate {
   /// Method for Basic Transformations
+  ///
   /// @return TransformationData.
   TransformationData negate() {
     // Determine if there are values to add to the dictionary
@@ -410,6 +451,7 @@ class Negate {
 
 class Normalise {
   /// Method for Basic Transformations
+  ///
   /// @return TransformationData.
   TransformationData normalise() {
     // Determine if there are values to add to the dictionary
@@ -422,8 +464,11 @@ class Normalise {
 
 class Linear {
   /// Method for Basic Transformations
+  ///
   /// @param a int (Default: 1)
+  ///
   /// @param b int (Default: 0)
+  ///
   /// @return TransformationData.
   TransformationData linear(
     int? a,
@@ -447,9 +492,13 @@ class Linear {
 
 class Modulate {
   /// Method for Basic Transformations
+  ///
   /// @param brightness double (Default: 1)
+  ///
   /// @param saturation double (Default: 1)
+  ///
   /// @param hue int (Default: 90)
+  ///
   /// @return TransformationData.
   TransformationData modulate(
     double? brightness,
@@ -478,6 +527,7 @@ class Modulate {
 
 class Grey {
   /// Method for Basic Transformations
+  ///
   /// @return TransformationData.
   TransformationData grey() {
     // Determine if there are values to add to the dictionary
@@ -490,7 +540,9 @@ class Grey {
 
 class Tint {
   /// Method for Basic Transformations
+  ///
   /// @param color String (Default: "000000")
+  ///
   /// @return TransformationData.
   TransformationData tint(
     String? color,
@@ -530,8 +582,11 @@ enum Format {
 
 class Toformat {
   /// Method for Basic Transformations
+  ///
   /// @param format Format? (Default: jpeg)
+  ///
   /// @param quality int (Default: 75)
+  ///
   /// @return TransformationData.
   TransformationData toFormat(
     Format? format,
@@ -555,7 +610,9 @@ class Toformat {
 
 class Density {
   /// Method for Basic Transformations
+  ///
   /// @param density int (Default: 300)
+  ///
   /// @return TransformationData.
   TransformationData density(
     int? density,
@@ -671,19 +728,33 @@ enum Blend {
 
 class Merge {
   /// Method for Basic Transformations
+  ///
   /// @param mode Mode? (Default: overlay)
+  ///
   /// @param image String (Default: )
+  ///
   /// @param transformation String (Default: )
+  ///
   /// @param background String (Default: "00000000")
+  ///
   /// @param height int (Default: 0)
+  ///
   /// @param width int (Default: 0)
+  ///
   /// @param top int (Default: 0)
+  ///
   /// @param left int (Default: 0)
+  ///
   /// @param gravity Gravity? (Default: center)
+  ///
   /// @param blend Blend? (Default: over)
+  ///
   /// @param tile bool (Default: false)
+  ///
   /// @param List of bboxes String
+  ///
   /// @param List of Polygons String
+  ///
   /// @return TransformationData.
   TransformationData merge(
     Mode? mode,

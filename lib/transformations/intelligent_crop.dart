@@ -209,14 +209,23 @@ enum Objecttype {
 
 class IntelligentCrop {
   /// Method for Intelligent Crop Plugin
+  ///
   /// @param Required Width int (Default: 0)
+  ///
   /// @param Required Height int (Default: 0)
+  ///
   /// @param Padding Percentage int (Default: 0)
+  ///
   /// @param Maintain Original Aspect bool (Default: false)
+  ///
   /// @param Aspect Ratio String (Default: "")
+  ///
   /// @param Gravity Towards Gravity towards? (Default: none)
+  ///
   /// @param Preferred Direction Preferred direction? (Default: center)
+  ///
   /// @param Object Type Object type? (Default: person)
+  ///
   /// @return TransformationData.
   TransformationData crop(
     int? requiredwidth,

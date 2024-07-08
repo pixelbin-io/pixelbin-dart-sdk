@@ -13,10 +13,15 @@ enum Focus {
 
 class BackgroundGenerator {
   /// Method for AI Background Generator
+  ///
   /// @param Background prompt String (Default: YSBmb3Jlc3QgZnVsbCBvZiBvYWsgdHJlZXMsd2l0aCBicmlnaHQgbGlnaHRzLCBzdW4gYW5kIGEgbG90IG9mIG1hZ2ljLCB1bHRyYSByZWFsaXN0aWMsIDhr)
+  ///
   /// @param focus Focus? (Default: Product)
+  ///
   /// @param Negative prompt String (Default: )
+  ///
   /// @param seed int (Default: 123)
+  ///
   /// @return TransformationData.
   TransformationData bg(
     String? backgroundprompt,

@@ -2,7 +2,9 @@ import '../transformation_data.dart';
 
 class TextDetectionandRecognition {
   /// Method for OCR Module
+  ///
   /// @param Detect Only bool (Default: false)
+  ///
   /// @return TransformationData.
   TransformationData extract(
     bool? detectonly,

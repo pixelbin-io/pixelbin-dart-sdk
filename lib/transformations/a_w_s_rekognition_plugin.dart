@@ -2,8 +2,11 @@ import '../transformation_data.dart';
 
 class Detectlabels {
   /// Method for Detect objects and text in images
+  ///
   /// @param Maximum Labels int (Default: 5)
+  ///
   /// @param Minimum Confidence int (Default: 55)
+  ///
   /// @return TransformationData.
   TransformationData detectLabels(
     int? maximumlabels,
@@ -28,7 +31,9 @@ class Detectlabels {
 
 class Moderation {
   /// Method for Detect objects and text in images
+  ///
   /// @param Minimum Confidence int (Default: 55)
+  ///
   /// @return TransformationData.
   TransformationData moderation(
     int? minpimumconfidence,
