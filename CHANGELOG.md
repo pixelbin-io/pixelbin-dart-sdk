@@ -9,3 +9,8 @@
 ## 1.0.1
 
 * Updated code documentation and sample example
+
+
+## 1.0.2
+
+* Updated code documentation.
