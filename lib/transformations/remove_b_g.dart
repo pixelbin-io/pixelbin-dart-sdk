@@ -3,7 +3,7 @@ import '../transformation_data.dart';
 class RemoveBG {
   /// Method for Remove background from any image
   ///
-  /// @return TransformationData.
+  /// Returns [TransformationData].
   TransformationData bg() {
     // Determine if there are values to add to the dictionary
 

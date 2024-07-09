@@ -3,9 +3,9 @@ import '../transformation_data.dart';
 class CheckObjectSize {
   /// Method for Calculates the percentage of the main object area relative to image dimensions.
   ///
-  /// @param Object Threshold Percent int (Default: 50)
+  /// - [objectthresholdpercent] : Object Threshold Percent (Default: 50)
   ///
-  /// @return TransformationData.
+  /// Returns [TransformationData].
   TransformationData detect(
     int? objectthresholdpercent,
   ) {

@@ -31,7 +31,7 @@ class Transformation {
 
   /// Classifies the background of a product as plain, clean or busy
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData detectbackgroundtype() {
     // Call the generated class method
     return DetectBackgroundType().detect();
@@ -41,7 +41,7 @@ class Transformation {
 
   /// Artifact Removal Plugin
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData artifact() {
     // Call the generated class method
     return Artifact().remove();
@@ -51,11 +51,11 @@ class Transformation {
 
   /// Detect objects and text in images
   ///
-  /// @param maximumlabels Maximum labels (Default: 5)
+  /// - [maximumlabels] : Maximum Labels (Default: 5)
   ///
-  /// @param minpimumconfidence Minimum confidence (Default: 55)
+  /// - [minpimumconfidence] : Minimum Confidence (Default: 55)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData detectlabels(
       {int? maximumlabels = 5, int? minpimumconfidence = 55}) {
     // Call the generated class method
@@ -64,9 +64,9 @@ class Transformation {
 
   /// Detect objects and text in images
   ///
-  /// @param minpimumconfidence Minimum confidence (Default: 55)
+  /// - [minpimumconfidence] : Minimum Confidence (Default: 55)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData moderation({int? minpimumconfidence = 55}) {
     // Call the generated class method
     return Moderation().moderation(minpimumconfidence);
@@ -76,15 +76,15 @@ class Transformation {
 
   /// AI Background Generator
   ///
-  /// @param backgroundprompt Background prompt (Default: YSBmb3Jlc3QgZnVsbCBvZiBvYWsgdHJlZXMsd2l0aCBicmlnaHQgbGlnaHRzLCBzdW4gYW5kIGEgbG90IG9mIG1hZ2ljLCB1bHRyYSByZWFsaXN0aWMsIDhr)
+  /// - [backgroundprompt] : Background prompt (Default: YSBmb3Jlc3QgZnVsbCBvZiBvYWsgdHJlZXMsd2l0aCBicmlnaHQgbGlnaHRzLCBzdW4gYW5kIGEgbG90IG9mIG1hZ2ljLCB1bHRyYSByZWFsaXN0aWMsIDhr)
   ///
-  /// @param focus Focus (Default: Product)
+  /// - [focus] : focus (Default: Product)
   ///
-  /// @param negativeprompt Negative prompt (Default: )
+  /// - [negativeprompt] : Negative prompt (Default: )
   ///
-  /// @param seed Seed (Default: 123)
+  /// - [seed] : seed (Default: 123)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData backgroundgenerator(
       {String? backgroundprompt =
           "YSBmb3Jlc3QgZnVsbCBvZiBvYWsgdHJlZXMsd2l0aCBicmlnaHQgbGlnaHRzLCBzdW4gYW5kIGEgbG90IG9mIG1hZ2ljLCB1bHRyYSByZWFsaXN0aWMsIDhr",
@@ -100,15 +100,15 @@ class Transformation {
 
   /// AI Variation Generator
   ///
-  /// @param generatevariationprompt Generate variation prompt (Default: )
+  /// - [generatevariationprompt] : Generate variation prompt (Default: )
   ///
-  /// @param noofvariations No. of variations (Default: 1)
+  /// - [noofvariations] : No. of Variations (Default: 1)
   ///
-  /// @param seed Seed (Default: 0)
+  /// - [seed] : Seed (Default: 0)
   ///
-  /// @param autoscale Autoscale input if it exceeds maximum resolution (Default: true)
+  /// - [autoscale] : Autoscale (Default: true)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData variationgenerator(
       {String? generatevariationprompt = "",
       int? noofvariations = 1,
@@ -123,13 +123,13 @@ class Transformation {
 
   /// EraseBG Background Removal Module
   ///
-  /// @param industryptype Foreground Type (Default: general)
+  /// - [industryptype] : Industry Type (Default: general)
   ///
-  /// @param addshadow Add Shadow (cars only) (Default: false)
+  /// - [addshadow] : Add Shadow (Default: false)
   ///
-  /// @param refinpe Refine Output (Default: true)
+  /// - [refinpe] : Refine (Default: true)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData erasebg(
       {Industrytype? industryptype = Industrytype.general,
       bool? addshadow = false,
@@ -142,9 +142,9 @@ class Transformation {
 
   /// Detect content and text in images
   ///
-  /// @param maximumlabels Maximum labels (Default: 5)
+  /// - [maximumlabels] : Maximum Labels (Default: 5)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData googlevisionplugin({int? maximumlabels = 5}) {
     // Call the generated class method
     return GoogleVisionPlugin().detectLabels(maximumlabels);
@@ -154,9 +154,9 @@ class Transformation {
 
   /// Image Centering Module
   ///
-  /// @param distancepercentage Distance percentage (Default: 10)
+  /// - [distancepercentage] : Distance percentage (Default: 10)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData imagecentering({int? distancepercentage = 10}) {
     // Call the generated class method
     return ImageCentering().detect(distancepercentage);
@@ -166,23 +166,23 @@ class Transformation {
 
   /// Intelligent Crop Plugin
   ///
-  /// @param requiredwidth Required width (Default: 0)
+  /// - [requiredwidth] : Required Width (Default: 0)
   ///
-  /// @param requiredheight Required height (Default: 0)
+  /// - [requiredheight] : Required Height (Default: 0)
   ///
-  /// @param paddinpgpercentage Padding percentage (Default: 0)
+  /// - [paddinpgpercentage] : Padding Percentage (Default: 0)
   ///
-  /// @param mainptainporiginpalaspect Maintain original aspect (Default: false)
+  /// - [mainptainporiginpalaspect] : Maintain Original Aspect (Default: false)
   ///
-  /// @param aspectratio Aspect Ratio (16_9 or 2 or 0.25) (Default: )
+  /// - [aspectratio] : Aspect Ratio (Default: "")
   ///
-  /// @param gravitytowards Gravity towards (Default: none)
+  /// - [gravitytowards] : Gravity Towards (Default: none)
   ///
-  /// @param preferreddirection Preferred direction (Default: center)
+  /// - [preferreddirection] : Preferred Direction (Default: center)
   ///
-  /// @param objectptype Object Type (if Gravity is object) (Default: person)
+  /// - [objectptype] : Object Type (Default: person)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData intelligentcrop(
       {int? requiredwidth = 0,
       int? requiredheight = 0,
@@ -208,7 +208,7 @@ class Transformation {
 
   /// Classifies whether objects in the image are single or multiple
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData objectcounter() {
     // Call the generated class method
     return ObjectCounter().detect();
@@ -218,9 +218,9 @@ class Transformation {
 
   /// Detect NSFW content in images
   ///
-  /// @param minpimumconfidence Minimum confidence (Default: 0.5)
+  /// - [minpimumconfidence] : Minimum Confidence (Default: 0.5)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData nsfwdetection({double? minpimumconfidence = 0.5}) {
     // Call the generated class method
     return NSFWDetection().detect(minpimumconfidence);
@@ -230,7 +230,7 @@ class Transformation {
 
   /// Number Plate Detection Plugin
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData numberplatedetection() {
     // Call the generated class method
     return NumberPlateDetection().detect();
@@ -240,7 +240,7 @@ class Transformation {
 
   /// Detect bounding boxes of objects in the image
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData objectdetection() {
     // Call the generated class method
     return ObjectDetection().detect();
@@ -250,9 +250,9 @@ class Transformation {
 
   /// Calculates the percentage of the main object area relative to image dimensions.
   ///
-  /// @param objectthresholdpercent Object threshold percent (Default: 50)
+  /// - [objectthresholdpercent] : Object Threshold Percent (Default: 50)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData checkobjectsize(
       {int? objectthresholdpercent = 50}) {
     // Call the generated class method
@@ -263,9 +263,9 @@ class Transformation {
 
   /// OCR Module
   ///
-  /// @param detectonly Detect only (Default: false)
+  /// - [detectonly] : Detect Only (Default: false)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData textdetectionandrecognition(
       {bool? detectonly = false}) {
     // Call the generated class method
@@ -276,7 +276,7 @@ class Transformation {
 
   /// PDF Watermark Removal Plugin
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData pdfwatermarkremoval() {
     // Call the generated class method
     return PdfWatermarkRemoval().remove();
@@ -286,7 +286,7 @@ class Transformation {
 
   /// AI Product Tagging
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData producttagging() {
     // Call the generated class method
     return ProductTagging().tag();
@@ -296,7 +296,7 @@ class Transformation {
 
   /// Classifies whether the product in the image is completely visible or not
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData checkproductvisibility() {
     // Call the generated class method
     return CheckProductVisibility().detect();
@@ -306,7 +306,7 @@ class Transformation {
 
   /// Remove background from any image
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData removebg() {
     // Call the generated class method
     return RemoveBG().bg();
@@ -316,21 +316,21 @@ class Transformation {
 
   /// Basic Transformations
   ///
-  /// @param height Height (Default: 0)
+  /// - [height] : height (Default: 0)
   ///
-  /// @param width Width (Default: 0)
+  /// - [width] : width (Default: 0)
   ///
-  /// @param fit Fit (Default: cover)
+  /// - [fit] : fit (Default: cover)
   ///
-  /// @param background Background (Default: 000000)
+  /// - [background] : background (Default: "000000")
   ///
-  /// @param position Position (Default: center)
+  /// - [position] : position (Default: center)
   ///
-  /// @param algorithm Algorithm (Default: lanczos3)
+  /// - [algorithm] : algorithm (Default: lanczos3)
   ///
-  /// @param dpr Dpr (Default: 1)
+  /// - [dpr] : DPR (Default: 1)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData resize(
       {int? height = 0,
       int? width = 0,
@@ -346,9 +346,9 @@ class Transformation {
 
   /// Basic Transformations
   ///
-  /// @param quality Quality (Default: 80)
+  /// - [quality] : quality (Default: 80)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData compress({int? quality = 80}) {
     // Call the generated class method
     return Compress().compress(quality);
@@ -356,21 +356,21 @@ class Transformation {
 
   /// Basic Transformations
   ///
-  /// @param top Top (Default: 10)
+  /// - [top] : top (Default: 10)
   ///
-  /// @param left Left (Default: 10)
+  /// - [left] : left (Default: 10)
   ///
-  /// @param bottom Bottom (Default: 10)
+  /// - [bottom] : bottom (Default: 10)
   ///
-  /// @param right Right (Default: 10)
+  /// - [right] : right (Default: 10)
   ///
-  /// @param background Background (Default: 000000)
+  /// - [background] : background (Default: "000000")
   ///
-  /// @param borderptype Border type (Default: constant)
+  /// - [borderptype] : Border Type (Default: constant)
   ///
-  /// @param dpr Dpr (Default: 1)
+  /// - [dpr] : DPR (Default: 1)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData extend(
       {int? top = 10,
       int? left = 10,
@@ -386,17 +386,17 @@ class Transformation {
 
   /// Basic Transformations
   ///
-  /// @param top Top (Default: 10)
+  /// - [top] : top (Default: 10)
   ///
-  /// @param left Left (Default: 10)
+  /// - [left] : left (Default: 10)
   ///
-  /// @param height Height (Default: 50)
+  /// - [height] : height (Default: 50)
   ///
-  /// @param width Width (Default: 20)
+  /// - [width] : width (Default: 20)
   ///
-  /// @param boundinpgbox Bounding box
+  /// - [boundinpgbox] : Bounding Box (Default: )
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData extract(
       {int? top = 10,
       int? left = 10,
@@ -409,9 +409,9 @@ class Transformation {
 
   /// Basic Transformations
   ///
-  /// @param threshold Threshold (Default: 10)
+  /// - [threshold] : threshold (Default: 10)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData trim({int? threshold = 10}) {
     // Call the generated class method
     return Trim().trim(threshold);
@@ -419,11 +419,11 @@ class Transformation {
 
   /// Basic Transformations
   ///
-  /// @param angle Angle (Default: 0)
+  /// - [angle] : angle (Default: 0)
   ///
-  /// @param background Background (Default: 000000)
+  /// - [background] : background (Default: "000000")
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData rotate(
       {int? angle = 0, String? background = "000000"}) {
     // Call the generated class method
@@ -432,7 +432,7 @@ class Transformation {
 
   /// Basic Transformations
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData flip() {
     // Call the generated class method
     return Flip().flip();
@@ -440,7 +440,7 @@ class Transformation {
 
   /// Basic Transformations
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData flop() {
     // Call the generated class method
     return Flop().flop();
@@ -448,9 +448,9 @@ class Transformation {
 
   /// Basic Transformations
   ///
-  /// @param sigma Sigma (Default: 1.5)
+  /// - [sigma] : sigma (Default: 1.5)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData sharpen({double? sigma = 1.5}) {
     // Call the generated class method
     return Sharpen().sharpen(sigma);
@@ -458,9 +458,9 @@ class Transformation {
 
   /// Basic Transformations
   ///
-  /// @param size Size (Default: 3)
+  /// - [size] : size (Default: 3)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData median({int? size = 3}) {
     // Call the generated class method
     return Median().median(size);
@@ -468,11 +468,11 @@ class Transformation {
 
   /// Basic Transformations
   ///
-  /// @param sigma Sigma (Default: 0.3)
+  /// - [sigma] : sigma (Default: 0.3)
   ///
-  /// @param dpr Dpr (Default: 1)
+  /// - [dpr] : DPR (Default: 1)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData blur({double? sigma = 0.3, double? dpr = 1}) {
     // Call the generated class method
     return Blur().blur(sigma, dpr);
@@ -480,9 +480,9 @@ class Transformation {
 
   /// Basic Transformations
   ///
-  /// @param background Background (Default: 000000)
+  /// - [background] : background (Default: "000000")
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData flatten({String? background = "000000"}) {
     // Call the generated class method
     return Flatten().flatten(background);
@@ -490,7 +490,7 @@ class Transformation {
 
   /// Basic Transformations
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData negate() {
     // Call the generated class method
     return Negate().negate();
@@ -498,7 +498,7 @@ class Transformation {
 
   /// Basic Transformations
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData normalise() {
     // Call the generated class method
     return Normalise().normalise();
@@ -506,11 +506,11 @@ class Transformation {
 
   /// Basic Transformations
   ///
-  /// @param a A (Default: 1)
+  /// - [a] : a (Default: 1)
   ///
-  /// @param b B (Default: 0)
+  /// - [b] : b (Default: 0)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData linear({int? a = 1, int? b = 0}) {
     // Call the generated class method
     return Linear().linear(a, b);
@@ -518,13 +518,13 @@ class Transformation {
 
   /// Basic Transformations
   ///
-  /// @param brightness Brightness (Default: 1)
+  /// - [brightness] : brightness (Default: 1)
   ///
-  /// @param saturation Saturation (Default: 1)
+  /// - [saturation] : saturation (Default: 1)
   ///
-  /// @param hue Hue (Default: 90)
+  /// - [hue] : hue (Default: 90)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData modulate(
       {double? brightness = 1, double? saturation = 1, int? hue = 90}) {
     // Call the generated class method
@@ -533,7 +533,7 @@ class Transformation {
 
   /// Basic Transformations
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData grey() {
     // Call the generated class method
     return Grey().grey();
@@ -541,9 +541,9 @@ class Transformation {
 
   /// Basic Transformations
   ///
-  /// @param color Color (Default: 000000)
+  /// - [color] : color (Default: "000000")
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData tint({String? color = "000000"}) {
     // Call the generated class method
     return Tint().tint(color);
@@ -551,11 +551,11 @@ class Transformation {
 
   /// Basic Transformations
   ///
-  /// @param format Format (Default: jpeg)
+  /// - [format] : format (Default: jpeg)
   ///
-  /// @param quality Quality (Default: 75)
+  /// - [quality] : quality (Default: 75)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData toformat(
       {Format? format = Format.jpeg, int? quality = 75}) {
     // Call the generated class method
@@ -564,9 +564,9 @@ class Transformation {
 
   /// Basic Transformations
   ///
-  /// @param density Density (Default: 300)
+  /// - [density] : density (Default: 300)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData density({int? density = 300}) {
     // Call the generated class method
     return Density().density(density);
@@ -574,33 +574,33 @@ class Transformation {
 
   /// Basic Transformations
   ///
-  /// @param mode Mode (Default: overlay)
+  /// - [mode] : mode (Default: overlay)
   ///
-  /// @param image Image (Default: )
+  /// - [image] : image (Default: )
   ///
-  /// @param transformation Transformation (Default: )
+  /// - [transformation] : transformation (Default: )
   ///
-  /// @param background Background (Default: 00000000)
+  /// - [background] : background (Default: "00000000")
   ///
-  /// @param height Height (Default: 0)
+  /// - [height] : height (Default: 0)
   ///
-  /// @param width Width (Default: 0)
+  /// - [width] : width (Default: 0)
   ///
-  /// @param top Top (Default: 0)
+  /// - [top] : top (Default: 0)
   ///
-  /// @param left Left (Default: 0)
+  /// - [left] : left (Default: 0)
   ///
-  /// @param gravity Gravity (Default: center)
+  /// - [gravity] : gravity (Default: center)
   ///
-  /// @param blend Blend (Default: over)
+  /// - [blend] : blend (Default: over)
   ///
-  /// @param tile Tile (Default: false)
+  /// - [tile] : tile (Default: false)
   ///
-  /// @param listofbboxes List of bboxes
+  /// - [listofbboxes] : List of bboxes (Default: )
   ///
-  /// @param listofpolygons List of polygons
+  /// - [listofpolygons] : List of Polygons (Default: )
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData merge(
       {Mode? mode = Mode.overlay,
       String? image = "",
@@ -624,15 +624,15 @@ class Transformation {
 
   /// AI Soft Shadow Generator
   ///
-  /// @param backgroundimage Background image
+  /// - [backgroundimage] : Background Image (Default: )
   ///
-  /// @param backgroundcolor Background color (Default: ffffff)
+  /// - [backgroundcolor] : Background Color (Default: "ffffff")
   ///
-  /// @param shadowangle Shadow angle (Default: 120)
+  /// - [shadowangle] : Shadow Angle (Default: 120)
   ///
-  /// @param shadowintensity Shadow intensity (Default: 0.5)
+  /// - [shadowintensity] : Shadow Intensity (Default: 0.5)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData softshadowgenerator(
       {String? backgroundimage = "",
       String? backgroundcolor = "ffffff",
@@ -647,15 +647,15 @@ class Transformation {
 
   /// Super Resolution Module
   ///
-  /// @param ptype Type (Default: 2x)
+  /// - [ptype] : Type (Default: 2x)
   ///
-  /// @param enhanceface Enhance face (Default: false)
+  /// - [enhanceface] : Enhance Face (Default: false)
   ///
-  /// @param model Model (Default: Picasso)
+  /// - [model] : Model (Default: Picasso)
   ///
-  /// @param enhancequality Enhance quality (Default: false)
+  /// - [enhancequality] : Enhance Quality (Default: false)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData superresolution(
       {PType? ptype = PType.p2x,
       bool? enhanceface = false,
@@ -669,7 +669,7 @@ class Transformation {
 
   /// Video Watermark Removal Plugin
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData videowatermarkremoval() {
     // Call the generated class method
     return VideoWatermarkRemoval().remove();
@@ -679,7 +679,7 @@ class Transformation {
 
   /// Classifies wear type and view type of products in the image
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData viewdetection() {
     // Call the generated class method
     return ViewDetection().detect();
@@ -689,21 +689,21 @@ class Transformation {
 
   /// Watermark Removal Plugin
   ///
-  /// @param removetext Remove text (Default: false)
+  /// - [removetext] : Remove Text (Default: false)
   ///
-  /// @param removelogo Remove logo (Default: false)
+  /// - [removelogo] : Remove Logo (Default: false)
   ///
-  /// @param box1 Box 1 (Default: 0_0_100_100)
+  /// - [box1] : Box 1 (Default: "0_0_100_100")
   ///
-  /// @param box2 Box 2 (Default: 0_0_0_0)
+  /// - [box2] : Box 2 (Default: "0_0_0_0")
   ///
-  /// @param box3 Box 3 (Default: 0_0_0_0)
+  /// - [box3] : Box 3 (Default: "0_0_0_0")
   ///
-  /// @param box4 Box 4 (Default: 0_0_0_0)
+  /// - [box4] : Box 4 (Default: "0_0_0_0")
   ///
-  /// @param box5 Box 5 (Default: 0_0_0_0)
+  /// - [box5] : Box 5 (Default: "0_0_0_0")
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData watermarkremoval(
       {bool? removetext = false,
       bool? removelogo = false,
@@ -721,9 +721,9 @@ class Transformation {
 
   /// Watermark Detection Plugin
   ///
-  /// @param detecttext Detect text (Default: false)
+  /// - [detecttext] : Detect Text (Default: false)
   ///
-  /// @return The generated TransformationData.
+  /// Returns [TransformationData].
   static TransformationData watermarkdetection({bool? detecttext = false}) {
     // Call the generated class method
     return WatermarkDetection().detect(detecttext);

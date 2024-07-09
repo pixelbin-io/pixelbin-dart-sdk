@@ -3,21 +3,21 @@ import '../transformation_data.dart';
 class WatermarkRemoval {
   /// Method for Watermark Removal Plugin
   ///
-  /// @param Remove Text bool (Default: false)
+  /// - [removetext] : Remove Text (Default: false)
   ///
-  /// @param Remove Logo bool (Default: false)
+  /// - [removelogo] : Remove Logo (Default: false)
   ///
-  /// @param Box 1 String (Default: "0_0_100_100")
+  /// - [box1] : Box 1 (Default: "0_0_100_100")
   ///
-  /// @param Box 2 String (Default: "0_0_0_0")
+  /// - [box2] : Box 2 (Default: "0_0_0_0")
   ///
-  /// @param Box 3 String (Default: "0_0_0_0")
+  /// - [box3] : Box 3 (Default: "0_0_0_0")
   ///
-  /// @param Box 4 String (Default: "0_0_0_0")
+  /// - [box4] : Box 4 (Default: "0_0_0_0")
   ///
-  /// @param Box 5 String (Default: "0_0_0_0")
+  /// - [box5] : Box 5 (Default: "0_0_0_0")
   ///
-  /// @return TransformationData.
+  /// Returns [TransformationData].
   TransformationData remove(
     bool? removetext,
     bool? removelogo,

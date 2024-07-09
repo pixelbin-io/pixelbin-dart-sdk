@@ -3,9 +3,9 @@ import '../transformation_data.dart';
 class WatermarkDetection {
   /// Method for Watermark Detection Plugin
   ///
-  /// @param Detect Text bool (Default: false)
+  /// - [detecttext] : Detect Text (Default: false)
   ///
-  /// @return TransformationData.
+  /// Returns [TransformationData].
   TransformationData detect(
     bool? detecttext,
   ) {

@@ -3,15 +3,15 @@ import '../transformation_data.dart';
 class SoftShadowGenerator {
   /// Method for AI Soft Shadow Generator
   ///
-  /// @param Background Image String
+  /// - [backgroundimage] : Background Image (Default: )
   ///
-  /// @param Background Color String (Default: "ffffff")
+  /// - [backgroundcolor] : Background Color (Default: "ffffff")
   ///
-  /// @param Shadow Angle double (Default: 120)
+  /// - [shadowangle] : Shadow Angle (Default: 120)
   ///
-  /// @param Shadow Intensity double (Default: 0.5)
+  /// - [shadowintensity] : Shadow Intensity (Default: 0.5)
   ///
-  /// @return TransformationData.
+  /// Returns [TransformationData].
   TransformationData gen(
     String? backgroundimage,
     String? backgroundcolor,
