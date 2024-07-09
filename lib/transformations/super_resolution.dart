@@ -27,15 +27,15 @@ enum Model {
 class SuperResolution {
   /// Method for Super Resolution Module
   ///
-  /// @param Type Type? (Default: 2x)
+  /// - [ptype] : Type (Default: 2x)
   ///
-  /// @param Enhance Face bool (Default: false)
+  /// - [enhanceface] : Enhance Face (Default: false)
   ///
-  /// @param Model Model? (Default: Picasso)
+  /// - [model] : Model (Default: Picasso)
   ///
-  /// @param Enhance Quality bool (Default: false)
+  /// - [enhancequality] : Enhance Quality (Default: false)
   ///
-  /// @return TransformationData.
+  /// Returns [TransformationData].
   TransformationData upscale(
     PType? ptype,
     bool? enhanceface,
