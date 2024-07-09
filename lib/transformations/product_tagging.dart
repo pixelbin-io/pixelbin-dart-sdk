@@ -3,7 +3,7 @@ import '../transformation_data.dart';
 class ProductTagging {
   /// Method for AI Product Tagging
   ///
-  /// @return TransformationData.
+  /// Returns [TransformationData].
   TransformationData tag() {
     // Determine if there are values to add to the dictionary
 

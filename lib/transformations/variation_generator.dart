@@ -3,15 +3,15 @@ import '../transformation_data.dart';
 class VariationGenerator {
   /// Method for AI Variation Generator
   ///
-  /// @param Generate variation prompt String (Default: )
+  /// - [generatevariationprompt] : Generate variation prompt (Default: )
   ///
-  /// @param No. of Variations int (Default: 1)
+  /// - [noofvariations] : No. of Variations (Default: 1)
   ///
-  /// @param Seed int (Default: 0)
+  /// - [seed] : Seed (Default: 0)
   ///
-  /// @param Autoscale bool (Default: true)
+  /// - [autoscale] : Autoscale (Default: true)
   ///
-  /// @return TransformationData.
+  /// Returns [TransformationData].
   TransformationData generate(
     String? generatevariationprompt,
     int? noofvariations,
