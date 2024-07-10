@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:pixelbin/pixelbin.dart';
+import 'package:pixelbin/_pixelbin.dart';
 import 'package:pixelbin/pixelbin_image.dart';
 import 'package:pixelbin/transformation.dart';
 import 'package:pixelbin/upload.dart';
