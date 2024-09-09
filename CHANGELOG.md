@@ -17,3 +17,7 @@
 ## 1.0.3
 
 * Updated code documentation.
+
+## 1.0.4
+
+* Updated method names and added new methods for transformations.
