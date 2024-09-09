@@ -1,6 +1,6 @@
 import '../transformation_data.dart';
 
-class ObjectCounter {
+class OcDetect {
   /// Method for Classifies whether objects in the image are single or multiple
   ///
   /// Returns [TransformationData].

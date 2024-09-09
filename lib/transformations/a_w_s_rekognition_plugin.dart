@@ -1,27 +1,31 @@
 import '../transformation_data.dart';
 
-class Detectlabels {
+class AwsrekDetectlabels {
   /// Method for Detect objects and text in images
   ///
-  /// - [maximumlabels] : Maximum Labels (Default: 5)
   ///
-  /// - [minpimumconfidence] : Minimum Confidence (Default: 55)
+  /// - [maximumLabels] : Maximum Labels (Default: 5)
+  ///
+  ///
+  ///
+  /// - [minimumConfidence] : Minimum Confidence (Default: 55)
+  ///
   ///
   /// Returns [TransformationData].
   TransformationData detectLabels(
-    int? maximumlabels,
-    int? minpimumconfidence,
+    int? maximumLabels,
+    int? minimumConfidence,
   ) {
     // Determine if there are values to add to the dictionary
 
     var values = <String, String>{};
 
-    if (maximumlabels != null) {
-      values['l'] = maximumlabels.toString();
+    if (maximumLabels != null) {
+      values['l'] = maximumLabels.toString();
     }
 
-    if (minpimumconfidence != null) {
-      values['c'] = minpimumconfidence.toString();
+    if (minimumConfidence != null) {
+      values['c'] = minimumConfidence.toString();
     }
 
     return TransformationData(
@@ -29,21 +33,23 @@ class Detectlabels {
   }
 }
 
-class Moderation {
+class AwsrekModeration {
   /// Method for Detect objects and text in images
   ///
-  /// - [minpimumconfidence] : Minimum Confidence (Default: 55)
+  ///
+  /// - [minimumConfidence] : Minimum Confidence (Default: 55)
+  ///
   ///
   /// Returns [TransformationData].
   TransformationData moderation(
-    int? minpimumconfidence,
+    int? minimumConfidence,
   ) {
     // Determine if there are values to add to the dictionary
 
     var values = <String, String>{};
 
-    if (minpimumconfidence != null) {
-      values['c'] = minpimumconfidence.toString();
+    if (minimumConfidence != null) {
+      values['c'] = minimumConfidence.toString();
     }
 
     return TransformationData(

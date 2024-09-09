@@ -1,6 +1,6 @@
 import '../transformation_data.dart';
 
-class ObjectDetection {
+class OdDetect {
   /// Method for Detect bounding boxes of objects in the image
   ///
   /// Returns [TransformationData].

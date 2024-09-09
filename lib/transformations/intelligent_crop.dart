@@ -1,7 +1,7 @@
 import '../transformation_data.dart';
 
 /// Gravity towards options: object, foreground, face, none
-enum Gravitytowards {
+enum IcGravitytowards {
   object('object'),
 
   foreground('foreground'),
@@ -12,16 +12,16 @@ enum Gravitytowards {
 
   final String value;
 
-  const Gravitytowards(this.value);
+  const IcGravitytowards(this.value);
 }
 
 /// Preferred direction options: north_west, north, north_east, west, center, east, south_west, south, south_east
-enum Preferreddirection {
-  north_west('north_west'),
+enum IcPreferreddirection {
+  northWest('north_west'),
 
   north('north'),
 
-  north_east('north_east'),
+  northEast('north_east'),
 
   west('west'),
 
@@ -29,19 +29,19 @@ enum Preferreddirection {
 
   east('east'),
 
-  south_west('south_west'),
+  southWest('south_west'),
 
   south('south'),
 
-  south_east('south_east');
+  southEast('south_east');
 
   final String value;
 
-  const Preferreddirection(this.value);
+  const IcPreferreddirection(this.value);
 }
 
 /// Object Type (if Gravity is object) options: airplane, apple, backpack, banana, baseball_bat, baseball_glove, bear, bed, bench, bicycle, bird, boat, book, bottle, bowl, broccoli, bus, cake, car, carrot, cat, cell_phone, chair, clock, couch, cow, cup, dining_table, dog, donut, elephant, fire_hydrant, fork, frisbee, giraffe, hair_drier, handbag, horse, hot_dog, keyboard, kite, knife, laptop, microwave, motorcycle, mouse, orange, oven, parking_meter, person, pizza, potted_plant, refrigerator, remote, sandwich, scissors, sheep, sink, skateboard, skis, snowboard, spoon, sports_ball, stop_sign, suitcase, surfboard, teddy_bear, tennis_racket, tie, toaster, toilet, toothbrush, traffic_light, train, truck, tv, umbrella, vase, wine_glass, zebra
-enum Objecttype {
+enum IcObjectType {
   airplane('airplane'),
 
   apple('apple'),
@@ -50,9 +50,9 @@ enum Objecttype {
 
   banana('banana'),
 
-  baseball_bat('baseball_bat'),
+  baseballBat('baseball_bat'),
 
-  baseball_glove('baseball_glove'),
+  baseballGlove('baseball_glove'),
 
   bear('bear'),
 
@@ -84,7 +84,7 @@ enum Objecttype {
 
   cat('cat'),
 
-  cell_phone('cell_phone'),
+  cellPhone('cell_phone'),
 
   chair('chair'),
 
@@ -96,7 +96,7 @@ enum Objecttype {
 
   cup('cup'),
 
-  dinpinpg_table('dining_table'),
+  dinpinpgTable('dining_table'),
 
   dog('dog'),
 
@@ -104,7 +104,7 @@ enum Objecttype {
 
   elephant('elephant'),
 
-  fire_hydrant('fire_hydrant'),
+  fireHydrant('fire_hydrant'),
 
   fork('fork'),
 
@@ -112,13 +112,13 @@ enum Objecttype {
 
   giraffe('giraffe'),
 
-  hair_drier('hair_drier'),
+  hairDrier('hair_drier'),
 
   handbag('handbag'),
 
   horse('horse'),
 
-  hot_dog('hot_dog'),
+  hotDog('hot_dog'),
 
   keyboard('keyboard'),
 
@@ -138,13 +138,13 @@ enum Objecttype {
 
   oven('oven'),
 
-  parkinpg_meter('parking_meter'),
+  parkinpgMeter('parking_meter'),
 
   person('person'),
 
   pizza('pizza'),
 
-  potted_plant('potted_plant'),
+  pottedPlant('potted_plant'),
 
   refrigerator('refrigerator'),
 
@@ -166,17 +166,17 @@ enum Objecttype {
 
   spoon('spoon'),
 
-  sports_ball('sports_ball'),
+  sportsBall('sports_ball'),
 
-  stop_sign('stop_sign'),
+  stopSign('stop_sign'),
 
   suitcase('suitcase'),
 
   surfboard('surfboard'),
 
-  teddy_bear('teddy_bear'),
+  teddyBear('teddy_bear'),
 
-  tennis_racket('tennis_racket'),
+  tennisRacket('tennis_racket'),
 
   tie('tie'),
 
@@ -186,7 +186,7 @@ enum Objecttype {
 
   toothbrush('toothbrush'),
 
-  traffic_light('traffic_light'),
+  trafficLight('traffic_light'),
 
   trainp('train'),
 
@@ -198,79 +198,95 @@ enum Objecttype {
 
   vase('vase'),
 
-  winpe_glass('wine_glass'),
+  winpeGlass('wine_glass'),
 
   zebra('zebra');
 
   final String value;
 
-  const Objecttype(this.value);
+  const IcObjectType(this.value);
 }
 
-class IntelligentCrop {
+class IcCrop {
   /// Method for Intelligent Crop Plugin
   ///
-  /// - [requiredwidth] : Required Width (Default: 0)
   ///
-  /// - [requiredheight] : Required Height (Default: 0)
+  /// - [requiredWidth] : Required Width (Default: 0)
   ///
-  /// - [paddinpgpercentage] : Padding Percentage (Default: 0)
   ///
-  /// - [mainptainporiginpalaspect] : Maintain Original Aspect (Default: false)
   ///
-  /// - [aspectratio] : Aspect Ratio (Default: "")
+  /// - [requiredHeight] : Required Height (Default: 0)
   ///
-  /// - [gravitytowards] : Gravity Towards (Default: none)
   ///
-  /// - [preferreddirection] : Preferred Direction (Default: center)
   ///
-  /// - [objectptype] : Object Type (Default: person)
+  /// - [paddingPercentage] : Padding Percentage (Default: 0)
+  ///
+  ///
+  ///
+  /// - [maintainOriginalAspect] : Maintain Original Aspect (Default: false)
+  ///
+  ///
+  ///
+  /// - [aspectRatio] : Aspect Ratio (Default: "")
+  ///
+  ///
+  ///
+  /// - [gravityTowards] : IcGravitytowards (Default: none)
+  ///
+  ///
+  ///
+  /// - [preferredDirection] : IcPreferreddirection (Default: center)
+  ///
+  ///
+  ///
+  /// - [objectType] : IcObjectType (Default: person)
+  ///
   ///
   /// Returns [TransformationData].
   TransformationData crop(
-    int? requiredwidth,
-    int? requiredheight,
-    int? paddinpgpercentage,
-    bool? mainptainporiginpalaspect,
-    String? aspectratio,
-    Gravitytowards? gravitytowards,
-    Preferreddirection? preferreddirection,
-    Objecttype? objectptype,
+    int? requiredWidth,
+    int? requiredHeight,
+    int? paddingPercentage,
+    bool? maintainOriginalAspect,
+    String? aspectRatio,
+    IcGravitytowards? gravityTowards,
+    IcPreferreddirection? preferredDirection,
+    IcObjectType? objectType,
   ) {
     // Determine if there are values to add to the dictionary
 
     var values = <String, String>{};
 
-    if (requiredwidth != null) {
-      values['w'] = requiredwidth.toString();
+    if (requiredWidth != null) {
+      values['w'] = requiredWidth.toString();
     }
 
-    if (requiredheight != null) {
-      values['h'] = requiredheight.toString();
+    if (requiredHeight != null) {
+      values['h'] = requiredHeight.toString();
     }
 
-    if (paddinpgpercentage != null) {
-      values['p'] = paddinpgpercentage.toString();
+    if (paddingPercentage != null) {
+      values['p'] = paddingPercentage.toString();
     }
 
-    if (mainptainporiginpalaspect != null) {
-      values['ma'] = mainptainporiginpalaspect.toString();
+    if (maintainOriginalAspect != null) {
+      values['ma'] = maintainOriginalAspect.toString();
     }
 
-    if (aspectratio != null && aspectratio.isNotEmpty) {
-      values['ar'] = aspectratio;
+    if (aspectRatio != null && aspectRatio.isNotEmpty) {
+      values['ar'] = aspectRatio;
     }
 
-    if (gravitytowards != null) {
-      values['g'] = gravitytowards.value;
+    if (gravityTowards != null) {
+      values['g'] = gravityTowards.value;
     }
 
-    if (preferreddirection != null) {
-      values['d'] = preferreddirection.value;
+    if (preferredDirection != null) {
+      values['d'] = preferredDirection.value;
     }
 
-    if (objectptype != null) {
-      values['obj'] = objectptype.value;
+    if (objectType != null) {
+      values['obj'] = objectType.value;
     }
 
     return TransformationData(plugin: 'ic', name: 'crop', values: values);

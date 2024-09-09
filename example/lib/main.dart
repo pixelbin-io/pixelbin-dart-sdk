@@ -90,9 +90,9 @@ class ImagePickerWidgetState extends State<ImagePickerWidget> {
       // final image = PixelBin.shared.image(imagePath: "example/logo/apple.jpg", cloud: "apple_cloud", zone: "south_asia");
       // debugPrint(imageFromDetails.encoded); // https://cdn.pixelbin.io/v2/apple_cloud/south_asia/original/example/logo/apple.jpg
 
-      final eraseTransformation = Transformation.erasebg();
-      final resizeTransformation = Transformation.resize(width: 200);
-      final blurTransformation = Transformation.blur(dpr: 5);
+      final eraseTransformation = Transformation.eraseBg();
+      final resizeTransformation = Transformation.tResize(width: 200);
+      final blurTransformation = Transformation.tBlur(dpr: 5);
 
       // imageFromDetails.addTransformations([eraseTransformation, resizeTransformation]);
       //OR

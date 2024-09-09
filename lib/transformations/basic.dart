@@ -1,7 +1,7 @@
 import '../transformation_data.dart';
 
 /// Fit options: cover, contain, fill, inside, outside
-enum Fit {
+enum TFit {
   cover('cover'),
 
   containp('contain'),
@@ -14,11 +14,11 @@ enum Fit {
 
   final String value;
 
-  const Fit(this.value);
+  const TFit(this.value);
 }
 
 /// Position options: top, bottom, left, right, right_top, right_bottom, left_top, left_bottom, center
-enum Position {
+enum TPosition {
   top('top'),
 
   bottom('bottom'),
@@ -27,23 +27,23 @@ enum Position {
 
   right('right'),
 
-  right_top('right_top'),
+  rightTop('right_top'),
 
-  right_bottom('right_bottom'),
+  rightBottom('right_bottom'),
 
-  left_top('left_top'),
+  leftTop('left_top'),
 
-  left_bottom('left_bottom'),
+  leftBottom('left_bottom'),
 
   center('center');
 
   final String value;
 
-  const Position(this.value);
+  const TPosition(this.value);
 }
 
 /// Algorithm options: nearest, cubic, mitchell, lanczos2, lanczos3
-enum Algorithm {
+enum TAlgorithm {
   nearest('nearest'),
 
   cubic('cubic'),
@@ -56,34 +56,48 @@ enum Algorithm {
 
   final String value;
 
-  const Algorithm(this.value);
+  const TAlgorithm(this.value);
 }
 
-class Resize {
+class TResize {
   /// Method for Basic Transformations
+  ///
   ///
   /// - [height] : height (Default: 0)
   ///
+  ///
+  ///
   /// - [width] : width (Default: 0)
   ///
-  /// - [fit] : fit (Default: cover)
+  ///
+  ///
+  /// - [fit] : TFit (Default: cover)
+  ///
+  ///
   ///
   /// - [background] : background (Default: "000000")
   ///
-  /// - [position] : position (Default: center)
   ///
-  /// - [algorithm] : algorithm (Default: lanczos3)
+  ///
+  /// - [position] : TPosition (Default: center)
+  ///
+  ///
+  ///
+  /// - [algorithm] : TAlgorithm (Default: lanczos3)
+  ///
+  ///
   ///
   /// - [dpr] : DPR (Default: 1)
+  ///
   ///
   /// Returns [TransformationData].
   TransformationData resize(
     int? height,
     int? width,
-    Fit? fit,
+    TFit? fit,
     String? background,
-    Position? position,
-    Algorithm? algorithm,
+    TPosition? position,
+    TAlgorithm? algorithm,
     double? dpr,
   ) {
     // Determine if there are values to add to the dictionary
@@ -122,10 +136,12 @@ class Resize {
   }
 }
 
-class Compress {
+class TCompress {
   /// Method for Basic Transformations
   ///
+  ///
   /// - [quality] : quality (Default: 80)
+  ///
   ///
   /// Returns [TransformationData].
   TransformationData compress(
@@ -144,7 +160,7 @@ class Compress {
 }
 
 /// Border type options: constant, replicate, reflect, wrap
-enum Bordertype {
+enum TBorderType {
   constant('constant'),
 
   replicate('replicate'),
@@ -155,25 +171,39 @@ enum Bordertype {
 
   final String value;
 
-  const Bordertype(this.value);
+  const TBorderType(this.value);
 }
 
-class Extend {
+class TExtend {
   /// Method for Basic Transformations
+  ///
   ///
   /// - [top] : top (Default: 10)
   ///
+  ///
+  ///
   /// - [left] : left (Default: 10)
+  ///
+  ///
   ///
   /// - [bottom] : bottom (Default: 10)
   ///
+  ///
+  ///
   /// - [right] : right (Default: 10)
+  ///
+  ///
   ///
   /// - [background] : background (Default: "000000")
   ///
-  /// - [borderptype] : Border Type (Default: constant)
+  ///
+  ///
+  /// - [borderType] : TBorderType (Default: constant)
+  ///
+  ///
   ///
   /// - [dpr] : DPR (Default: 1)
+  ///
   ///
   /// Returns [TransformationData].
   TransformationData extend(
@@ -182,7 +212,7 @@ class Extend {
     int? bottom,
     int? right,
     String? background,
-    Bordertype? borderptype,
+    TBorderType? borderType,
     double? dpr,
   ) {
     // Determine if there are values to add to the dictionary
@@ -209,8 +239,8 @@ class Extend {
       values['bc'] = background;
     }
 
-    if (borderptype != null) {
-      values['bt'] = borderptype.value;
+    if (borderType != null) {
+      values['bt'] = borderType.value;
     }
 
     if (dpr != null) {
@@ -221,18 +251,28 @@ class Extend {
   }
 }
 
-class Extract {
+class TExtract {
   /// Method for Basic Transformations
+  ///
   ///
   /// - [top] : top (Default: 10)
   ///
+  ///
+  ///
   /// - [left] : left (Default: 10)
+  ///
+  ///
   ///
   /// - [height] : height (Default: 50)
   ///
+  ///
+  ///
   /// - [width] : width (Default: 20)
   ///
-  /// - [boundinpgbox] : Bounding Box (Default: )
+  ///
+  ///
+  /// - [boundingBox] : Bounding Box (Default: )
+  ///
   ///
   /// Returns [TransformationData].
   TransformationData extract(
@@ -240,7 +280,7 @@ class Extract {
     int? left,
     int? height,
     int? width,
-    String? boundinpgbox,
+    String? boundingBox,
   ) {
     // Determine if there are values to add to the dictionary
 
@@ -262,18 +302,20 @@ class Extract {
       values['w'] = width.toString();
     }
 
-    if (boundinpgbox != null) {
-      values['bbox'] = boundinpgbox.toString();
+    if (boundingBox != null) {
+      values['bbox'] = boundingBox.toString();
     }
 
     return TransformationData(plugin: 't', name: 'extract', values: values);
   }
 }
 
-class Trim {
+class TTrim {
   /// Method for Basic Transformations
   ///
+  ///
   /// - [threshold] : threshold (Default: 10)
+  ///
   ///
   /// Returns [TransformationData].
   TransformationData trim(
@@ -291,12 +333,16 @@ class Trim {
   }
 }
 
-class Rotate {
+class TRotate {
   /// Method for Basic Transformations
+  ///
   ///
   /// - [angle] : angle (Default: 0)
   ///
+  ///
+  ///
   /// - [background] : background (Default: "000000")
+  ///
   ///
   /// Returns [TransformationData].
   TransformationData rotate(
@@ -319,7 +365,7 @@ class Rotate {
   }
 }
 
-class Flip {
+class TFlip {
   /// Method for Basic Transformations
   ///
   /// Returns [TransformationData].
@@ -332,7 +378,7 @@ class Flip {
   }
 }
 
-class Flop {
+class TFlop {
   /// Method for Basic Transformations
   ///
   /// Returns [TransformationData].
@@ -345,10 +391,12 @@ class Flop {
   }
 }
 
-class Sharpen {
+class TSharpen {
   /// Method for Basic Transformations
   ///
+  ///
   /// - [sigma] : sigma (Default: 1.5)
+  ///
   ///
   /// Returns [TransformationData].
   TransformationData sharpen(
@@ -366,10 +414,12 @@ class Sharpen {
   }
 }
 
-class Median {
+class TMedian {
   /// Method for Basic Transformations
   ///
+  ///
   /// - [size] : size (Default: 3)
+  ///
   ///
   /// Returns [TransformationData].
   TransformationData median(
@@ -387,12 +437,16 @@ class Median {
   }
 }
 
-class Blur {
+class TBlur {
   /// Method for Basic Transformations
+  ///
   ///
   /// - [sigma] : sigma (Default: 0.3)
   ///
+  ///
+  ///
   /// - [dpr] : DPR (Default: 1)
+  ///
   ///
   /// Returns [TransformationData].
   TransformationData blur(
@@ -415,10 +469,12 @@ class Blur {
   }
 }
 
-class Flatten {
+class TFlatten {
   /// Method for Basic Transformations
   ///
+  ///
   /// - [background] : background (Default: "000000")
+  ///
   ///
   /// Returns [TransformationData].
   TransformationData flatten(
@@ -436,7 +492,7 @@ class Flatten {
   }
 }
 
-class Negate {
+class TNegate {
   /// Method for Basic Transformations
   ///
   /// Returns [TransformationData].
@@ -449,7 +505,7 @@ class Negate {
   }
 }
 
-class Normalise {
+class TNormalise {
   /// Method for Basic Transformations
   ///
   /// Returns [TransformationData].
@@ -462,12 +518,16 @@ class Normalise {
   }
 }
 
-class Linear {
+class TLinear {
   /// Method for Basic Transformations
+  ///
   ///
   /// - [a] : a (Default: 1)
   ///
+  ///
+  ///
   /// - [b] : b (Default: 0)
+  ///
   ///
   /// Returns [TransformationData].
   TransformationData linear(
@@ -490,14 +550,20 @@ class Linear {
   }
 }
 
-class Modulate {
+class TModulate {
   /// Method for Basic Transformations
+  ///
   ///
   /// - [brightness] : brightness (Default: 1)
   ///
+  ///
+  ///
   /// - [saturation] : saturation (Default: 1)
   ///
+  ///
+  ///
   /// - [hue] : hue (Default: 90)
+  ///
   ///
   /// Returns [TransformationData].
   TransformationData modulate(
@@ -525,7 +591,7 @@ class Modulate {
   }
 }
 
-class Grey {
+class TGrey {
   /// Method for Basic Transformations
   ///
   /// Returns [TransformationData].
@@ -538,10 +604,12 @@ class Grey {
   }
 }
 
-class Tint {
+class TTint {
   /// Method for Basic Transformations
   ///
+  ///
   /// - [color] : color (Default: "000000")
+  ///
   ///
   /// Returns [TransformationData].
   TransformationData tint(
@@ -560,7 +628,7 @@ class Tint {
 }
 
 /// Format options: jpeg, png, webp, tiff, avif, bmp, heif
-enum Format {
+enum TFormat {
   jpeg('jpeg'),
 
   png('png'),
@@ -577,19 +645,23 @@ enum Format {
 
   final String value;
 
-  const Format(this.value);
+  const TFormat(this.value);
 }
 
-class Toformat {
+class TToformat {
   /// Method for Basic Transformations
   ///
-  /// - [format] : format (Default: jpeg)
+  ///
+  /// - [format] : TFormat (Default: jpeg)
+  ///
+  ///
   ///
   /// - [quality] : quality (Default: 75)
   ///
+  ///
   /// Returns [TransformationData].
   TransformationData toFormat(
-    Format? format,
+    TFormat? format,
     int? quality,
   ) {
     // Determine if there are values to add to the dictionary
@@ -608,10 +680,12 @@ class Toformat {
   }
 }
 
-class Density {
+class TDensity {
   /// Method for Basic Transformations
   ///
+  ///
   /// - [density] : density (Default: 300)
+  ///
   ///
   /// Returns [TransformationData].
   TransformationData density(
@@ -630,7 +704,7 @@ class Density {
 }
 
 /// Mode options: overlay, underlay, wrap
-enum Mode {
+enum TMode {
   overlay('overlay'),
 
   underlay('underlay'),
@@ -639,11 +713,11 @@ enum Mode {
 
   final String value;
 
-  const Mode(this.value);
+  const TMode(this.value);
 }
 
 /// Gravity options: northwest, north, northeast, east, center, west, southwest, south, southeast, custom
-enum Gravity {
+enum TGravity {
   northwest('northwest'),
 
   north('north'),
@@ -666,11 +740,11 @@ enum Gravity {
 
   final String value;
 
-  const Gravity(this.value);
+  const TGravity(this.value);
 }
 
 /// Blend options: over, in, out, atop, dest, dest-over, dest-in, dest-out, dest-atop, xor, add, saturate, multiply, screen, overlay, darken, lighten, colour-dodge, color-dodge, colour-burn, color-burn, hard-light, soft-light, difference, exclusion
-enum Blend {
+enum TBlend {
   over('over'),
 
   inp('in'),
@@ -681,13 +755,13 @@ enum Blend {
 
   dest('dest'),
 
-  dest_over('dest-over'),
+  destOver('dest-over'),
 
-  dest_inp('dest-in'),
+  destIn('dest-in'),
 
-  dest_out('dest-out'),
+  destOut('dest-out'),
 
-  dest_atop('dest-atop'),
+  destAtop('dest-atop'),
 
   xor('xor'),
 
@@ -705,17 +779,17 @@ enum Blend {
 
   lighten('lighten'),
 
-  colour_dodge('colour-dodge'),
+  colourDodge('colour-dodge'),
 
-  color_dodge('color-dodge'),
+  colorDodge('color-dodge'),
 
-  colour_burn('colour-burn'),
+  colourBurn('colour-burn'),
 
-  color_burn('color-burn'),
+  colorBurn('color-burn'),
 
-  hard_light('hard-light'),
+  hardLight('hard-light'),
 
-  soft_light('soft-light'),
+  softLight('soft-light'),
 
   difference('difference'),
 
@@ -723,41 +797,67 @@ enum Blend {
 
   final String value;
 
-  const Blend(this.value);
+  const TBlend(this.value);
 }
 
-class Merge {
+class TMerge {
   /// Method for Basic Transformations
   ///
-  /// - [mode] : mode (Default: overlay)
+  ///
+  /// - [mode] : TMode (Default: overlay)
+  ///
+  ///
   ///
   /// - [image] : image (Default: )
   ///
+  ///
+  ///
   /// - [transformation] : transformation (Default: )
+  ///
+  ///
   ///
   /// - [background] : background (Default: "00000000")
   ///
+  ///
+  ///
   /// - [height] : height (Default: 0)
+  ///
+  ///
   ///
   /// - [width] : width (Default: 0)
   ///
+  ///
+  ///
   /// - [top] : top (Default: 0)
+  ///
+  ///
   ///
   /// - [left] : left (Default: 0)
   ///
-  /// - [gravity] : gravity (Default: center)
   ///
-  /// - [blend] : blend (Default: over)
+  ///
+  /// - [gravity] : TGravity (Default: center)
+  ///
+  ///
+  ///
+  /// - [blend] : TBlend (Default: over)
+  ///
+  ///
   ///
   /// - [tile] : tile (Default: false)
   ///
-  /// - [listofbboxes] : List of bboxes (Default: )
   ///
-  /// - [listofpolygons] : List of Polygons (Default: )
+  ///
+  /// - [listOfBboxes] : List of bboxes (Default: )
+  ///
+  ///
+  ///
+  /// - [listOfPolygons] : List of Polygons (Default: )
+  ///
   ///
   /// Returns [TransformationData].
   TransformationData merge(
-    Mode? mode,
+    TMode? mode,
     String? image,
     String? transformation,
     String? background,
@@ -765,11 +865,11 @@ class Merge {
     int? width,
     int? top,
     int? left,
-    Gravity? gravity,
-    Blend? blend,
+    TGravity? gravity,
+    TBlend? blend,
     bool? tile,
-    String? listofbboxes,
-    String? listofpolygons,
+    String? listOfBboxes,
+    String? listOfPolygons,
   ) {
     // Determine if there are values to add to the dictionary
 
@@ -819,12 +919,12 @@ class Merge {
       values['r'] = tile.toString();
     }
 
-    if (listofbboxes != null) {
-      values['bboxes'] = listofbboxes.toString();
+    if (listOfBboxes != null) {
+      values['bboxes'] = listOfBboxes.toString();
     }
 
-    if (listofpolygons != null) {
-      values['polys'] = listofpolygons.toString();
+    if (listOfPolygons != null) {
+      values['polys'] = listOfPolygons.toString();
     }
 
     return TransformationData(plugin: 't', name: 'merge', values: values);
