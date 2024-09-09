@@ -1,20 +1,22 @@
 import '../transformation_data.dart';
 
-class ImageCentering {
+class ImcDetect {
   /// Method for Image Centering Module
   ///
-  /// - [distancepercentage] : Distance percentage (Default: 10)
+  ///
+  /// - [distancePercentage] : Distance percentage (Default: 10)
+  ///
   ///
   /// Returns [TransformationData].
   TransformationData detect(
-    int? distancepercentage,
+    int? distancePercentage,
   ) {
     // Determine if there are values to add to the dictionary
 
     var values = <String, String>{};
 
-    if (distancepercentage != null) {
-      values['dist_perc'] = distancepercentage.toString();
+    if (distancePercentage != null) {
+      values['dist_perc'] = distancePercentage.toString();
     }
 
     return TransformationData(plugin: 'imc', name: 'detect', values: values);

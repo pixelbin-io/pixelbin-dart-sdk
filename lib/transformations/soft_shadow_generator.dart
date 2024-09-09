@@ -1,41 +1,49 @@
 import '../transformation_data.dart';
 
-class SoftShadowGenerator {
+class ShadowGen {
   /// Method for AI Soft Shadow Generator
   ///
-  /// - [backgroundimage] : Background Image (Default: )
   ///
-  /// - [backgroundcolor] : Background Color (Default: "ffffff")
+  /// - [backgroundImage] : Background Image (Default: )
   ///
-  /// - [shadowangle] : Shadow Angle (Default: 120)
   ///
-  /// - [shadowintensity] : Shadow Intensity (Default: 0.5)
+  ///
+  /// - [backgroundColor] : Background Color (Default: "ffffff")
+  ///
+  ///
+  ///
+  /// - [shadowAngle] : Shadow Angle (Default: 120)
+  ///
+  ///
+  ///
+  /// - [shadowIntensity] : Shadow Intensity (Default: 0.5)
+  ///
   ///
   /// Returns [TransformationData].
   TransformationData gen(
-    String? backgroundimage,
-    String? backgroundcolor,
-    double? shadowangle,
-    double? shadowintensity,
+    String? backgroundImage,
+    String? backgroundColor,
+    double? shadowAngle,
+    double? shadowIntensity,
   ) {
     // Determine if there are values to add to the dictionary
 
     var values = <String, String>{};
 
-    if (backgroundimage != null) {
-      values['bgi'] = backgroundimage.toString();
+    if (backgroundImage != null) {
+      values['bgi'] = backgroundImage.toString();
     }
 
-    if (backgroundcolor != null && backgroundcolor.isNotEmpty) {
-      values['bgc'] = backgroundcolor;
+    if (backgroundColor != null && backgroundColor.isNotEmpty) {
+      values['bgc'] = backgroundColor;
     }
 
-    if (shadowangle != null) {
-      values['a'] = shadowangle.toString();
+    if (shadowAngle != null) {
+      values['a'] = shadowAngle.toString();
     }
 
-    if (shadowintensity != null) {
-      values['i'] = shadowintensity.toString();
+    if (shadowIntensity != null) {
+      values['i'] = shadowIntensity.toString();
     }
 
     return TransformationData(plugin: 'shadow', name: 'gen', values: values);

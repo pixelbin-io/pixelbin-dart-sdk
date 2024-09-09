@@ -1,65 +1,73 @@
 import '../transformation_data.dart';
 
 /// Type options: 2x, 4x, 8x
-enum PType {
-  p2x('2x'),
+enum SrType {
+  p2X('2x'),
 
-  p4x('4x'),
+  p4X('4x'),
 
-  p8x('8x');
+  p8X('8x');
 
   final String value;
 
-  const PType(this.value);
+  const SrType(this.value);
 }
 
 /// Model options: Picasso, Flash
-enum Model {
+enum SrModel {
   picasso('Picasso'),
 
   flash('Flash');
 
   final String value;
 
-  const Model(this.value);
+  const SrModel(this.value);
 }
 
-class SuperResolution {
+class SrUpscale {
   /// Method for Super Resolution Module
   ///
-  /// - [ptype] : Type (Default: 2x)
   ///
-  /// - [enhanceface] : Enhance Face (Default: false)
+  /// - [type] : SrType (Default: 2x)
   ///
-  /// - [model] : Model (Default: Picasso)
   ///
-  /// - [enhancequality] : Enhance Quality (Default: false)
+  ///
+  /// - [enhanceFace] : Enhance Face (Default: false)
+  ///
+  ///
+  ///
+  /// - [model] : SrModel (Default: Picasso)
+  ///
+  ///
+  ///
+  /// - [enhanceQuality] : Enhance Quality (Default: false)
+  ///
   ///
   /// Returns [TransformationData].
   TransformationData upscale(
-    PType? ptype,
-    bool? enhanceface,
-    Model? model,
-    bool? enhancequality,
+    SrType? type,
+    bool? enhanceFace,
+    SrModel? model,
+    bool? enhanceQuality,
   ) {
     // Determine if there are values to add to the dictionary
 
     var values = <String, String>{};
 
-    if (ptype != null) {
-      values['t'] = ptype.value;
+    if (type != null) {
+      values['t'] = type.value;
     }
 
-    if (enhanceface != null) {
-      values['enhance_face'] = enhanceface.toString();
+    if (enhanceFace != null) {
+      values['enhance_face'] = enhanceFace.toString();
     }
 
     if (model != null) {
       values['model'] = model.value;
     }
 
-    if (enhancequality != null) {
-      values['enhance_quality'] = enhancequality.toString();
+    if (enhanceQuality != null) {
+      values['enhance_quality'] = enhanceQuality.toString();
     }
 
     return TransformationData(plugin: 'sr', name: 'upscale', values: values);

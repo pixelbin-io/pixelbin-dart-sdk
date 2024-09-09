@@ -1,6 +1,6 @@
 import '../transformation_data.dart';
 
-class PdfWatermarkRemoval {
+class PwrRemove {
   /// Method for PDF Watermark Removal Plugin
   ///
   /// Returns [TransformationData].

@@ -1,6 +1,6 @@
 import '../transformation_data.dart';
 
-class CheckProductVisibility {
+class CpvDetect {
   /// Method for Classifies whether the product in the image is completely visible or not
   ///
   /// Returns [TransformationData].

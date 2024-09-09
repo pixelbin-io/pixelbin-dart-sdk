@@ -1,20 +1,28 @@
 import '../transformation_data.dart';
 
-class VariationGenerator {
+class VgGenerate {
   /// Method for AI Variation Generator
   ///
-  /// - [generatevariationprompt] : Generate variation prompt (Default: )
   ///
-  /// - [noofvariations] : No. of Variations (Default: 1)
+  /// - [generateVariationPrompt] : Generate variation prompt (Default: )
+  ///
+  ///
+  ///
+  /// - [noOfVariations] : No. of Variations (Default: 1)
+  ///
+  ///
   ///
   /// - [seed] : Seed (Default: 0)
   ///
+  ///
+  ///
   /// - [autoscale] : Autoscale (Default: true)
+  ///
   ///
   /// Returns [TransformationData].
   TransformationData generate(
-    String? generatevariationprompt,
-    int? noofvariations,
+    String? generateVariationPrompt,
+    int? noOfVariations,
     int? seed,
     bool? autoscale,
   ) {
@@ -22,12 +30,12 @@ class VariationGenerator {
 
     var values = <String, String>{};
 
-    if (generatevariationprompt != null) {
-      values['p'] = generatevariationprompt.toString();
+    if (generateVariationPrompt != null) {
+      values['p'] = generateVariationPrompt.toString();
     }
 
-    if (noofvariations != null) {
-      values['v'] = noofvariations.toString();
+    if (noOfVariations != null) {
+      values['v'] = noOfVariations.toString();
     }
 
     if (seed != null) {

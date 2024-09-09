@@ -1,6 +1,6 @@
 import '../transformation_data.dart';
 
-class ProductTagging {
+class PrTag {
   /// Method for AI Product Tagging
   ///
   /// Returns [TransformationData].

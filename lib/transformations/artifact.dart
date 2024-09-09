@@ -1,6 +1,6 @@
 import '../transformation_data.dart';
 
-class Artifact {
+class AfRemove {
   /// Method for Artifact Removal Plugin
   ///
   /// Returns [TransformationData].

@@ -25,6 +25,8 @@ import 'transformations/product_tagging.dart';
 import 'transformations/remove_b_g.dart';
 import 'transformations/soft_shadow_generator.dart';
 import 'transformations/variation_generator.dart';
+import 'transformations/vertex_a_i.dart';
+import 'transformations/q_r_code.dart';
 
 class Transformation {
   // DetectBackgroundType
@@ -32,9 +34,9 @@ class Transformation {
   /// Classifies the background of a product as plain, clean or busy
   ///
   /// Returns [TransformationData].
-  static TransformationData detectbackgroundtype() {
+  static TransformationData dbtDetect() {
     // Call the generated class method
-    return DetectBackgroundType().detect();
+    return DbtDetect().detect();
   }
 
   // Artifact
@@ -42,166 +44,213 @@ class Transformation {
   /// Artifact Removal Plugin
   ///
   /// Returns [TransformationData].
-  static TransformationData artifact() {
+  static TransformationData afRemove() {
     // Call the generated class method
-    return Artifact().remove();
+    return AfRemove().remove();
   }
 
   // AWSRekognitionPlugin
 
   /// Detect objects and text in images
   ///
-  /// - [maximumlabels] : Maximum Labels (Default: 5)
   ///
-  /// - [minpimumconfidence] : Minimum Confidence (Default: 55)
+  /// - [maximumLabels] : Maximum Labels (Default: 5)
+  ///
+  ///
+  ///
+  /// - [minimumConfidence] : Minimum Confidence (Default: 55)
+  ///
   ///
   /// Returns [TransformationData].
-  static TransformationData detectlabels(
-      {int? maximumlabels = 5, int? minpimumconfidence = 55}) {
+  static TransformationData awsrekDetectlabels(
+      {int? maximumLabels = 5, int? minimumConfidence = 55}) {
     // Call the generated class method
-    return Detectlabels().detectLabels(maximumlabels, minpimumconfidence);
+    return AwsrekDetectlabels().detectLabels(maximumLabels, minimumConfidence);
   }
 
   /// Detect objects and text in images
   ///
-  /// - [minpimumconfidence] : Minimum Confidence (Default: 55)
+  ///
+  /// - [minimumConfidence] : Minimum Confidence (Default: 55)
+  ///
   ///
   /// Returns [TransformationData].
-  static TransformationData moderation({int? minpimumconfidence = 55}) {
+  static TransformationData awsrekModeration({int? minimumConfidence = 55}) {
     // Call the generated class method
-    return Moderation().moderation(minpimumconfidence);
+    return AwsrekModeration().moderation(minimumConfidence);
   }
 
   // BackgroundGenerator
 
   /// AI Background Generator
   ///
-  /// - [backgroundprompt] : Background prompt (Default: YSBmb3Jlc3QgZnVsbCBvZiBvYWsgdHJlZXMsd2l0aCBicmlnaHQgbGlnaHRzLCBzdW4gYW5kIGEgbG90IG9mIG1hZ2ljLCB1bHRyYSByZWFsaXN0aWMsIDhr)
   ///
-  /// - [focus] : focus (Default: Product)
+  /// - [backgroundPrompt] : Background prompt (Default: YSBmb3Jlc3QgZnVsbCBvZiBvYWsgdHJlZXMsd2l0aCBicmlnaHQgbGlnaHRzLCBzdW4gYW5kIGEgbG90IG9mIG1hZ2ljLCB1bHRyYSByZWFsaXN0aWMsIDhr)
   ///
-  /// - [negativeprompt] : Negative prompt (Default: )
+  ///
+  ///
+  /// - [focus] : GenerateFocus (Default: Product)
+  ///
+  ///
+  ///
+  /// - [negativePrompt] : Negative prompt (Default: )
+  ///
+  ///
   ///
   /// - [seed] : seed (Default: 123)
   ///
+  ///
   /// Returns [TransformationData].
-  static TransformationData backgroundgenerator(
-      {String? backgroundprompt =
+  static TransformationData generateBg(
+      {String? backgroundPrompt =
           "YSBmb3Jlc3QgZnVsbCBvZiBvYWsgdHJlZXMsd2l0aCBicmlnaHQgbGlnaHRzLCBzdW4gYW5kIGEgbG90IG9mIG1hZ2ljLCB1bHRyYSByZWFsaXN0aWMsIDhr",
-      Focus? focus = Focus.product,
-      String? negativeprompt = "",
+      GenerateFocus? focus = GenerateFocus.product,
+      String? negativePrompt = "",
       int? seed = 123}) {
     // Call the generated class method
-    return BackgroundGenerator()
-        .bg(backgroundprompt, focus, negativeprompt, seed);
+    return GenerateBg().bg(backgroundPrompt, focus, negativePrompt, seed);
   }
 
   // VariationGenerator
 
   /// AI Variation Generator
   ///
-  /// - [generatevariationprompt] : Generate variation prompt (Default: )
   ///
-  /// - [noofvariations] : No. of Variations (Default: 1)
+  /// - [generateVariationPrompt] : Generate variation prompt (Default: )
+  ///
+  ///
+  ///
+  /// - [noOfVariations] : No. of Variations (Default: 1)
+  ///
+  ///
   ///
   /// - [seed] : Seed (Default: 0)
   ///
+  ///
+  ///
   /// - [autoscale] : Autoscale (Default: true)
   ///
+  ///
   /// Returns [TransformationData].
-  static TransformationData variationgenerator(
-      {String? generatevariationprompt = "",
-      int? noofvariations = 1,
+  static TransformationData vgGenerate(
+      {String? generateVariationPrompt = "",
+      int? noOfVariations = 1,
       int? seed = 0,
       bool? autoscale = true}) {
     // Call the generated class method
-    return VariationGenerator()
-        .generate(generatevariationprompt, noofvariations, seed, autoscale);
+    return VgGenerate()
+        .generate(generateVariationPrompt, noOfVariations, seed, autoscale);
   }
 
   // EraseBG
 
   /// EraseBG Background Removal Module
   ///
-  /// - [industryptype] : Industry Type (Default: general)
   ///
-  /// - [addshadow] : Add Shadow (Default: false)
+  /// - [industryType] : EraseIndustryType (Default: general)
   ///
-  /// - [refinpe] : Refine (Default: true)
+  ///
+  ///
+  /// - [addShadow] : Add Shadow (Default: false)
+  ///
+  ///
+  ///
+  /// - [refine] : Refine (Default: true)
+  ///
   ///
   /// Returns [TransformationData].
-  static TransformationData erasebg(
-      {Industrytype? industryptype = Industrytype.general,
-      bool? addshadow = false,
-      bool? refinpe = true}) {
+  static TransformationData eraseBg(
+      {EraseIndustryType? industryType = EraseIndustryType.general,
+      bool? addShadow = false,
+      bool? refine = true}) {
     // Call the generated class method
-    return EraseBG().bg(industryptype, addshadow, refinpe);
+    return EraseBg().bg(industryType, addShadow, refine);
   }
 
   // GoogleVisionPlugin
 
   /// Detect content and text in images
   ///
-  /// - [maximumlabels] : Maximum Labels (Default: 5)
+  ///
+  /// - [maximumLabels] : Maximum Labels (Default: 5)
+  ///
   ///
   /// Returns [TransformationData].
-  static TransformationData googlevisionplugin({int? maximumlabels = 5}) {
+  static TransformationData googlevisDetectlabels({int? maximumLabels = 5}) {
     // Call the generated class method
-    return GoogleVisionPlugin().detectLabels(maximumlabels);
+    return GooglevisDetectlabels().detectLabels(maximumLabels);
   }
 
   // ImageCentering
 
   /// Image Centering Module
   ///
-  /// - [distancepercentage] : Distance percentage (Default: 10)
+  ///
+  /// - [distancePercentage] : Distance percentage (Default: 10)
+  ///
   ///
   /// Returns [TransformationData].
-  static TransformationData imagecentering({int? distancepercentage = 10}) {
+  static TransformationData imcDetect({int? distancePercentage = 10}) {
     // Call the generated class method
-    return ImageCentering().detect(distancepercentage);
+    return ImcDetect().detect(distancePercentage);
   }
 
   // IntelligentCrop
 
   /// Intelligent Crop Plugin
   ///
-  /// - [requiredwidth] : Required Width (Default: 0)
   ///
-  /// - [requiredheight] : Required Height (Default: 0)
+  /// - [requiredWidth] : Required Width (Default: 0)
   ///
-  /// - [paddinpgpercentage] : Padding Percentage (Default: 0)
   ///
-  /// - [mainptainporiginpalaspect] : Maintain Original Aspect (Default: false)
   ///
-  /// - [aspectratio] : Aspect Ratio (Default: "")
+  /// - [requiredHeight] : Required Height (Default: 0)
   ///
-  /// - [gravitytowards] : Gravity Towards (Default: none)
   ///
-  /// - [preferreddirection] : Preferred Direction (Default: center)
   ///
-  /// - [objectptype] : Object Type (Default: person)
+  /// - [paddingPercentage] : Padding Percentage (Default: 0)
+  ///
+  ///
+  ///
+  /// - [maintainOriginalAspect] : Maintain Original Aspect (Default: false)
+  ///
+  ///
+  ///
+  /// - [aspectRatio] : Aspect Ratio (Default: "")
+  ///
+  ///
+  ///
+  /// - [gravityTowards] : IcGravitytowards (Default: none)
+  ///
+  ///
+  ///
+  /// - [preferredDirection] : IcPreferreddirection (Default: center)
+  ///
+  ///
+  ///
+  /// - [objectType] : IcObjectType (Default: person)
+  ///
   ///
   /// Returns [TransformationData].
-  static TransformationData intelligentcrop(
-      {int? requiredwidth = 0,
-      int? requiredheight = 0,
-      int? paddinpgpercentage = 0,
-      bool? mainptainporiginpalaspect = false,
-      String? aspectratio = "",
-      Gravitytowards? gravitytowards = Gravitytowards.none,
-      Preferreddirection? preferreddirection = Preferreddirection.center,
-      Objecttype? objectptype = Objecttype.person}) {
+  static TransformationData icCrop(
+      {int? requiredWidth = 0,
+      int? requiredHeight = 0,
+      int? paddingPercentage = 0,
+      bool? maintainOriginalAspect = false,
+      String? aspectRatio = "",
+      IcGravitytowards? gravityTowards = IcGravitytowards.none,
+      IcPreferreddirection? preferredDirection = IcPreferreddirection.center,
+      IcObjectType? objectType = IcObjectType.person}) {
     // Call the generated class method
-    return IntelligentCrop().crop(
-        requiredwidth,
-        requiredheight,
-        paddinpgpercentage,
-        mainptainporiginpalaspect,
-        aspectratio,
-        gravitytowards,
-        preferreddirection,
-        objectptype);
+    return IcCrop().crop(
+        requiredWidth,
+        requiredHeight,
+        paddingPercentage,
+        maintainOriginalAspect,
+        aspectRatio,
+        gravityTowards,
+        preferredDirection,
+        objectType);
   }
 
   // ObjectCounter
@@ -209,21 +258,23 @@ class Transformation {
   /// Classifies whether objects in the image are single or multiple
   ///
   /// Returns [TransformationData].
-  static TransformationData objectcounter() {
+  static TransformationData ocDetect() {
     // Call the generated class method
-    return ObjectCounter().detect();
+    return OcDetect().detect();
   }
 
   // NSFWDetection
 
   /// Detect NSFW content in images
   ///
-  /// - [minpimumconfidence] : Minimum Confidence (Default: 0.5)
+  ///
+  /// - [minimumConfidence] : Minimum Confidence (Default: 0.5)
+  ///
   ///
   /// Returns [TransformationData].
-  static TransformationData nsfwdetection({double? minpimumconfidence = 0.5}) {
+  static TransformationData nsfwDetect({double? minimumConfidence = 0.5}) {
     // Call the generated class method
-    return NSFWDetection().detect(minpimumconfidence);
+    return NsfwDetect().detect(minimumConfidence);
   }
 
   // NumberPlateDetection
@@ -231,9 +282,9 @@ class Transformation {
   /// Number Plate Detection Plugin
   ///
   /// Returns [TransformationData].
-  static TransformationData numberplatedetection() {
+  static TransformationData numplateDetect() {
     // Call the generated class method
-    return NumberPlateDetection().detect();
+    return NumplateDetect().detect();
   }
 
   // ObjectDetection
@@ -241,35 +292,37 @@ class Transformation {
   /// Detect bounding boxes of objects in the image
   ///
   /// Returns [TransformationData].
-  static TransformationData objectdetection() {
+  static TransformationData odDetect() {
     // Call the generated class method
-    return ObjectDetection().detect();
+    return OdDetect().detect();
   }
 
   // CheckObjectSize
 
   /// Calculates the percentage of the main object area relative to image dimensions.
   ///
-  /// - [objectthresholdpercent] : Object Threshold Percent (Default: 50)
+  ///
+  /// - [objectThresholdPercent] : Object Threshold Percent (Default: 50)
+  ///
   ///
   /// Returns [TransformationData].
-  static TransformationData checkobjectsize(
-      {int? objectthresholdpercent = 50}) {
+  static TransformationData cosDetect({int? objectThresholdPercent = 50}) {
     // Call the generated class method
-    return CheckObjectSize().detect(objectthresholdpercent);
+    return CosDetect().detect(objectThresholdPercent);
   }
 
   // TextDetectionandRecognition
 
   /// OCR Module
   ///
-  /// - [detectonly] : Detect Only (Default: false)
+  ///
+  /// - [detectOnly] : Detect Only (Default: false)
+  ///
   ///
   /// Returns [TransformationData].
-  static TransformationData textdetectionandrecognition(
-      {bool? detectonly = false}) {
+  static TransformationData ocrExtract({bool? detectOnly = false}) {
     // Call the generated class method
-    return TextDetectionandRecognition().extract(detectonly);
+    return OcrExtract().extract(detectOnly);
   }
 
   // PdfWatermarkRemoval
@@ -277,9 +330,9 @@ class Transformation {
   /// PDF Watermark Removal Plugin
   ///
   /// Returns [TransformationData].
-  static TransformationData pdfwatermarkremoval() {
+  static TransformationData pwrRemove() {
     // Call the generated class method
-    return PdfWatermarkRemoval().remove();
+    return PwrRemove().remove();
   }
 
   // ProductTagging
@@ -287,9 +340,9 @@ class Transformation {
   /// AI Product Tagging
   ///
   /// Returns [TransformationData].
-  static TransformationData producttagging() {
+  static TransformationData prTag() {
     // Call the generated class method
-    return ProductTagging().tag();
+    return PrTag().tag();
   }
 
   // CheckProductVisibility
@@ -297,9 +350,118 @@ class Transformation {
   /// Classifies whether the product in the image is completely visible or not
   ///
   /// Returns [TransformationData].
-  static TransformationData checkproductvisibility() {
+  static TransformationData cpvDetect() {
     // Call the generated class method
-    return CheckProductVisibility().detect();
+    return CpvDetect().detect();
+  }
+
+  // QRCode
+
+  /// QRCode Plugin
+  ///
+  ///
+  /// - [width] : width (Default: 300)
+  ///
+  ///
+  ///
+  /// - [height] : height (Default: 300)
+  ///
+  ///
+  ///
+  /// - [image] : image (Default: )
+  ///
+  ///
+  ///
+  /// - [margin] : margin (Default: 0)
+  ///
+  ///
+  ///
+  /// - [qRTypeNumber] : qRTypeNumber (Default: 0)
+  ///
+  ///
+  ///
+  /// - [qrErrorCorrectionLevel] : QrQrerrorcorrectionlevel (Default: Q)
+  ///
+  ///
+  ///
+  /// - [imageSize] : imageSize (Default: 0.4)
+  ///
+  ///
+  ///
+  /// - [imageMargin] : imageMargin (Default: 0)
+  ///
+  ///
+  ///
+  /// - [dotsColor] : dotsColor (Default: "000000")
+  ///
+  ///
+  ///
+  /// - [dotsType] : QrDotsType (Default: square)
+  ///
+  ///
+  ///
+  /// - [dotsBgColor] : dotsBgColor (Default: "ffffff")
+  ///
+  ///
+  ///
+  /// - [cornerSquareColor] : cornerSquareColor (Default: "000000")
+  ///
+  ///
+  ///
+  /// - [cornerSquareType] : QrCornersquareType (Default: square)
+  ///
+  ///
+  ///
+  /// - [cornerDotsColor] : cornerDotsColor (Default: "000000")
+  ///
+  ///
+  ///
+  /// - [cornerDotsType] : QrCornerdotsType (Default: dot)
+  ///
+  ///
+  /// Returns [TransformationData].
+  static TransformationData qrGenerate(
+      {int? width = 300,
+      int? height = 300,
+      String? image = "",
+      int? margin = 0,
+      int? qRTypeNumber = 0,
+      QrQrerrorcorrectionlevel? qrErrorCorrectionLevel =
+          QrQrerrorcorrectionlevel.q,
+      double? imageSize = 0.4,
+      int? imageMargin = 0,
+      String? dotsColor = "000000",
+      QrDotsType? dotsType = QrDotsType.square,
+      String? dotsBgColor = "ffffff",
+      String? cornerSquareColor = "000000",
+      QrCornersquareType? cornerSquareType = QrCornersquareType.square,
+      String? cornerDotsColor = "000000",
+      QrCornerdotsType? cornerDotsType = QrCornerdotsType.dot}) {
+    // Call the generated class method
+    return QrGenerate().generate(
+        width,
+        height,
+        image,
+        margin,
+        qRTypeNumber,
+        qrErrorCorrectionLevel,
+        imageSize,
+        imageMargin,
+        dotsColor,
+        dotsType,
+        dotsBgColor,
+        cornerSquareColor,
+        cornerSquareType,
+        cornerDotsColor,
+        cornerDotsType);
+  }
+
+  /// QRCode Plugin
+  ///
+  /// Returns [TransformationData].
+  static TransformationData qrScan() {
+    // Call the generated class method
+    return QrScan().scan();
   }
 
   // RemoveBG
@@ -307,302 +469,402 @@ class Transformation {
   /// Remove background from any image
   ///
   /// Returns [TransformationData].
-  static TransformationData removebg() {
+  static TransformationData removeBg() {
     // Call the generated class method
-    return RemoveBG().bg();
+    return RemoveBg().bg();
   }
 
   // Basic
 
   /// Basic Transformations
   ///
+  ///
   /// - [height] : height (Default: 0)
+  ///
+  ///
   ///
   /// - [width] : width (Default: 0)
   ///
-  /// - [fit] : fit (Default: cover)
+  ///
+  ///
+  /// - [fit] : TFit (Default: cover)
+  ///
+  ///
   ///
   /// - [background] : background (Default: "000000")
   ///
-  /// - [position] : position (Default: center)
   ///
-  /// - [algorithm] : algorithm (Default: lanczos3)
+  ///
+  /// - [position] : TPosition (Default: center)
+  ///
+  ///
+  ///
+  /// - [algorithm] : TAlgorithm (Default: lanczos3)
+  ///
+  ///
   ///
   /// - [dpr] : DPR (Default: 1)
   ///
+  ///
   /// Returns [TransformationData].
-  static TransformationData resize(
+  static TransformationData tResize(
       {int? height = 0,
       int? width = 0,
-      Fit? fit = Fit.cover,
+      TFit? fit = TFit.cover,
       String? background = "000000",
-      Position? position = Position.center,
-      Algorithm? algorithm = Algorithm.lanczos3,
+      TPosition? position = TPosition.center,
+      TAlgorithm? algorithm = TAlgorithm.lanczos3,
       double? dpr = 1}) {
     // Call the generated class method
-    return Resize()
+    return TResize()
         .resize(height, width, fit, background, position, algorithm, dpr);
   }
 
   /// Basic Transformations
   ///
+  ///
   /// - [quality] : quality (Default: 80)
   ///
+  ///
   /// Returns [TransformationData].
-  static TransformationData compress({int? quality = 80}) {
+  static TransformationData tCompress({int? quality = 80}) {
     // Call the generated class method
-    return Compress().compress(quality);
+    return TCompress().compress(quality);
   }
 
   /// Basic Transformations
   ///
+  ///
   /// - [top] : top (Default: 10)
+  ///
+  ///
   ///
   /// - [left] : left (Default: 10)
   ///
+  ///
+  ///
   /// - [bottom] : bottom (Default: 10)
+  ///
+  ///
   ///
   /// - [right] : right (Default: 10)
   ///
+  ///
+  ///
   /// - [background] : background (Default: "000000")
   ///
-  /// - [borderptype] : Border Type (Default: constant)
+  ///
+  ///
+  /// - [borderType] : TBorderType (Default: constant)
+  ///
+  ///
   ///
   /// - [dpr] : DPR (Default: 1)
   ///
+  ///
   /// Returns [TransformationData].
-  static TransformationData extend(
+  static TransformationData tExtend(
       {int? top = 10,
       int? left = 10,
       int? bottom = 10,
       int? right = 10,
       String? background = "000000",
-      Bordertype? borderptype = Bordertype.constant,
+      TBorderType? borderType = TBorderType.constant,
       double? dpr = 1}) {
     // Call the generated class method
-    return Extend()
-        .extend(top, left, bottom, right, background, borderptype, dpr);
+    return TExtend()
+        .extend(top, left, bottom, right, background, borderType, dpr);
   }
 
   /// Basic Transformations
   ///
+  ///
   /// - [top] : top (Default: 10)
+  ///
+  ///
   ///
   /// - [left] : left (Default: 10)
   ///
+  ///
+  ///
   /// - [height] : height (Default: 50)
+  ///
+  ///
   ///
   /// - [width] : width (Default: 20)
   ///
-  /// - [boundinpgbox] : Bounding Box (Default: )
+  ///
+  ///
+  /// - [boundingBox] : Bounding Box (Default: )
+  ///
   ///
   /// Returns [TransformationData].
-  static TransformationData extract(
+  static TransformationData tExtract(
       {int? top = 10,
       int? left = 10,
       int? height = 50,
       int? width = 20,
-      String? boundinpgbox}) {
+      String? boundingBox}) {
     // Call the generated class method
-    return Extract().extract(top, left, height, width, boundinpgbox);
+    return TExtract().extract(top, left, height, width, boundingBox);
   }
 
   /// Basic Transformations
+  ///
   ///
   /// - [threshold] : threshold (Default: 10)
   ///
+  ///
   /// Returns [TransformationData].
-  static TransformationData trim({int? threshold = 10}) {
+  static TransformationData tTrim({int? threshold = 10}) {
     // Call the generated class method
-    return Trim().trim(threshold);
+    return TTrim().trim(threshold);
   }
 
   /// Basic Transformations
+  ///
   ///
   /// - [angle] : angle (Default: 0)
   ///
+  ///
+  ///
   /// - [background] : background (Default: "000000")
   ///
+  ///
   /// Returns [TransformationData].
-  static TransformationData rotate(
+  static TransformationData tRotate(
       {int? angle = 0, String? background = "000000"}) {
     // Call the generated class method
-    return Rotate().rotate(angle, background);
+    return TRotate().rotate(angle, background);
   }
 
   /// Basic Transformations
   ///
   /// Returns [TransformationData].
-  static TransformationData flip() {
+  static TransformationData tFlip() {
     // Call the generated class method
-    return Flip().flip();
+    return TFlip().flip();
   }
 
   /// Basic Transformations
   ///
   /// Returns [TransformationData].
-  static TransformationData flop() {
+  static TransformationData tFlop() {
     // Call the generated class method
-    return Flop().flop();
+    return TFlop().flop();
   }
 
   /// Basic Transformations
+  ///
   ///
   /// - [sigma] : sigma (Default: 1.5)
   ///
+  ///
   /// Returns [TransformationData].
-  static TransformationData sharpen({double? sigma = 1.5}) {
+  static TransformationData tSharpen({double? sigma = 1.5}) {
     // Call the generated class method
-    return Sharpen().sharpen(sigma);
+    return TSharpen().sharpen(sigma);
   }
 
   /// Basic Transformations
+  ///
   ///
   /// - [size] : size (Default: 3)
   ///
+  ///
   /// Returns [TransformationData].
-  static TransformationData median({int? size = 3}) {
+  static TransformationData tMedian({int? size = 3}) {
     // Call the generated class method
-    return Median().median(size);
+    return TMedian().median(size);
   }
 
   /// Basic Transformations
+  ///
   ///
   /// - [sigma] : sigma (Default: 0.3)
   ///
+  ///
+  ///
   /// - [dpr] : DPR (Default: 1)
   ///
+  ///
   /// Returns [TransformationData].
-  static TransformationData blur({double? sigma = 0.3, double? dpr = 1}) {
+  static TransformationData tBlur({double? sigma = 0.3, double? dpr = 1}) {
     // Call the generated class method
-    return Blur().blur(sigma, dpr);
+    return TBlur().blur(sigma, dpr);
   }
 
   /// Basic Transformations
+  ///
   ///
   /// - [background] : background (Default: "000000")
   ///
+  ///
   /// Returns [TransformationData].
-  static TransformationData flatten({String? background = "000000"}) {
+  static TransformationData tFlatten({String? background = "000000"}) {
     // Call the generated class method
-    return Flatten().flatten(background);
+    return TFlatten().flatten(background);
   }
 
   /// Basic Transformations
   ///
   /// Returns [TransformationData].
-  static TransformationData negate() {
+  static TransformationData tNegate() {
     // Call the generated class method
-    return Negate().negate();
+    return TNegate().negate();
   }
 
   /// Basic Transformations
   ///
   /// Returns [TransformationData].
-  static TransformationData normalise() {
+  static TransformationData tNormalise() {
     // Call the generated class method
-    return Normalise().normalise();
+    return TNormalise().normalise();
   }
 
   /// Basic Transformations
+  ///
   ///
   /// - [a] : a (Default: 1)
   ///
+  ///
+  ///
   /// - [b] : b (Default: 0)
   ///
+  ///
   /// Returns [TransformationData].
-  static TransformationData linear({int? a = 1, int? b = 0}) {
+  static TransformationData tLinear({int? a = 1, int? b = 0}) {
     // Call the generated class method
-    return Linear().linear(a, b);
+    return TLinear().linear(a, b);
   }
 
   /// Basic Transformations
+  ///
   ///
   /// - [brightness] : brightness (Default: 1)
   ///
+  ///
+  ///
   /// - [saturation] : saturation (Default: 1)
+  ///
+  ///
   ///
   /// - [hue] : hue (Default: 90)
   ///
+  ///
   /// Returns [TransformationData].
-  static TransformationData modulate(
+  static TransformationData tModulate(
       {double? brightness = 1, double? saturation = 1, int? hue = 90}) {
     // Call the generated class method
-    return Modulate().modulate(brightness, saturation, hue);
+    return TModulate().modulate(brightness, saturation, hue);
   }
 
   /// Basic Transformations
   ///
   /// Returns [TransformationData].
-  static TransformationData grey() {
+  static TransformationData tGrey() {
     // Call the generated class method
-    return Grey().grey();
+    return TGrey().grey();
   }
 
   /// Basic Transformations
+  ///
   ///
   /// - [color] : color (Default: "000000")
   ///
+  ///
   /// Returns [TransformationData].
-  static TransformationData tint({String? color = "000000"}) {
+  static TransformationData tTint({String? color = "000000"}) {
     // Call the generated class method
-    return Tint().tint(color);
+    return TTint().tint(color);
   }
 
   /// Basic Transformations
   ///
-  /// - [format] : format (Default: jpeg)
+  ///
+  /// - [format] : TFormat (Default: jpeg)
+  ///
+  ///
   ///
   /// - [quality] : quality (Default: 75)
   ///
+  ///
   /// Returns [TransformationData].
-  static TransformationData toformat(
-      {Format? format = Format.jpeg, int? quality = 75}) {
+  static TransformationData tToformat(
+      {TFormat? format = TFormat.jpeg, int? quality = 75}) {
     // Call the generated class method
-    return Toformat().toFormat(format, quality);
+    return TToformat().toFormat(format, quality);
   }
 
   /// Basic Transformations
+  ///
   ///
   /// - [density] : density (Default: 300)
   ///
+  ///
   /// Returns [TransformationData].
-  static TransformationData density({int? density = 300}) {
+  static TransformationData tDensity({int? density = 300}) {
     // Call the generated class method
-    return Density().density(density);
+    return TDensity().density(density);
   }
 
   /// Basic Transformations
   ///
-  /// - [mode] : mode (Default: overlay)
+  ///
+  /// - [mode] : TMode (Default: overlay)
+  ///
+  ///
   ///
   /// - [image] : image (Default: )
   ///
+  ///
+  ///
   /// - [transformation] : transformation (Default: )
+  ///
+  ///
   ///
   /// - [background] : background (Default: "00000000")
   ///
+  ///
+  ///
   /// - [height] : height (Default: 0)
+  ///
+  ///
   ///
   /// - [width] : width (Default: 0)
   ///
+  ///
+  ///
   /// - [top] : top (Default: 0)
+  ///
+  ///
   ///
   /// - [left] : left (Default: 0)
   ///
-  /// - [gravity] : gravity (Default: center)
   ///
-  /// - [blend] : blend (Default: over)
+  ///
+  /// - [gravity] : TGravity (Default: center)
+  ///
+  ///
+  ///
+  /// - [blend] : TBlend (Default: over)
+  ///
+  ///
   ///
   /// - [tile] : tile (Default: false)
   ///
-  /// - [listofbboxes] : List of bboxes (Default: )
   ///
-  /// - [listofpolygons] : List of Polygons (Default: )
+  ///
+  /// - [listOfBboxes] : List of bboxes (Default: )
+  ///
+  ///
+  ///
+  /// - [listOfPolygons] : List of Polygons (Default: )
+  ///
   ///
   /// Returns [TransformationData].
-  static TransformationData merge(
-      {Mode? mode = Mode.overlay,
+  static TransformationData tMerge(
+      {TMode? mode = TMode.overlay,
       String? image = "",
       String? transformation = "",
       String? background = "00000000",
@@ -610,59 +872,128 @@ class Transformation {
       int? width = 0,
       int? top = 0,
       int? left = 0,
-      Gravity? gravity = Gravity.center,
-      Blend? blend = Blend.over,
+      TGravity? gravity = TGravity.center,
+      TBlend? blend = TBlend.over,
       bool? tile = false,
-      String? listofbboxes = "",
-      String? listofpolygons = ""}) {
+      String? listOfBboxes = "",
+      String? listOfPolygons = ""}) {
     // Call the generated class method
-    return Merge().merge(mode, image, transformation, background, height, width,
-        top, left, gravity, blend, tile, listofbboxes, listofpolygons);
+    return TMerge().merge(mode, image, transformation, background, height,
+        width, top, left, gravity, blend, tile, listOfBboxes, listOfPolygons);
   }
 
   // SoftShadowGenerator
 
   /// AI Soft Shadow Generator
   ///
-  /// - [backgroundimage] : Background Image (Default: )
   ///
-  /// - [backgroundcolor] : Background Color (Default: "ffffff")
+  /// - [backgroundImage] : Background Image (Default: )
   ///
-  /// - [shadowangle] : Shadow Angle (Default: 120)
   ///
-  /// - [shadowintensity] : Shadow Intensity (Default: 0.5)
+  ///
+  /// - [backgroundColor] : Background Color (Default: "ffffff")
+  ///
+  ///
+  ///
+  /// - [shadowAngle] : Shadow Angle (Default: 120)
+  ///
+  ///
+  ///
+  /// - [shadowIntensity] : Shadow Intensity (Default: 0.5)
+  ///
   ///
   /// Returns [TransformationData].
-  static TransformationData softshadowgenerator(
-      {String? backgroundimage = "",
-      String? backgroundcolor = "ffffff",
-      double? shadowangle = 120,
-      double? shadowintensity = 0.5}) {
+  static TransformationData shadowGen(
+      {String? backgroundImage = "",
+      String? backgroundColor = "ffffff",
+      double? shadowAngle = 120,
+      double? shadowIntensity = 0.5}) {
     // Call the generated class method
-    return SoftShadowGenerator()
-        .gen(backgroundimage, backgroundcolor, shadowangle, shadowintensity);
+    return ShadowGen()
+        .gen(backgroundImage, backgroundColor, shadowAngle, shadowIntensity);
   }
 
   // SuperResolution
 
   /// Super Resolution Module
   ///
-  /// - [ptype] : Type (Default: 2x)
   ///
-  /// - [enhanceface] : Enhance Face (Default: false)
+  /// - [type] : SrType (Default: 2x)
   ///
-  /// - [model] : Model (Default: Picasso)
   ///
-  /// - [enhancequality] : Enhance Quality (Default: false)
+  ///
+  /// - [enhanceFace] : Enhance Face (Default: false)
+  ///
+  ///
+  ///
+  /// - [model] : SrModel (Default: Picasso)
+  ///
+  ///
+  ///
+  /// - [enhanceQuality] : Enhance Quality (Default: false)
+  ///
   ///
   /// Returns [TransformationData].
-  static TransformationData superresolution(
-      {PType? ptype = PType.p2x,
-      bool? enhanceface = false,
-      Model? model = Model.picasso,
-      bool? enhancequality = false}) {
+  static TransformationData srUpscale(
+      {SrType? type = SrType.p2X,
+      bool? enhanceFace = false,
+      SrModel? model = SrModel.picasso,
+      bool? enhanceQuality = false}) {
     // Call the generated class method
-    return SuperResolution().upscale(ptype, enhanceface, model, enhancequality);
+    return SrUpscale().upscale(type, enhanceFace, model, enhanceQuality);
+  }
+
+  // VertexAI
+
+  /// Vertex AI based transformations
+  ///
+  ///
+  /// - [backgroundPrompt] : Background prompt (Default: YSBmb3Jlc3QgZnVsbCBvZiBvYWsgdHJlZXMsd2l0aCBicmlnaHQgbGlnaHRzLCBzdW4gYW5kIGEgbG90IG9mIG1hZ2ljLCB1bHRyYSByZWFsaXN0aWMsIDhr)
+  ///
+  ///
+  ///
+  /// - [negativePrompt] : Negative prompt (Default: )
+  ///
+  ///
+  ///
+  /// - [seed] : seed (Default: 22)
+  ///
+  ///
+  ///
+  /// - [guidanceScale] : Guidance Scale (Default: 60)
+  ///
+  ///
+  /// Returns [TransformationData].
+  static TransformationData vertexaiGeneratebg(
+      {String? backgroundPrompt =
+          "YSBmb3Jlc3QgZnVsbCBvZiBvYWsgdHJlZXMsd2l0aCBicmlnaHQgbGlnaHRzLCBzdW4gYW5kIGEgbG90IG9mIG1hZ2ljLCB1bHRyYSByZWFsaXN0aWMsIDhr",
+      String? negativePrompt = "",
+      int? seed = 22,
+      int? guidanceScale = 60}) {
+    // Call the generated class method
+    return VertexaiGeneratebg()
+        .generateBG(backgroundPrompt, negativePrompt, seed, guidanceScale);
+  }
+
+  /// Vertex AI based transformations
+  ///
+  /// Returns [TransformationData].
+  static TransformationData vertexaiRemovebg() {
+    // Call the generated class method
+    return VertexaiRemovebg().removeBG();
+  }
+
+  /// Vertex AI based transformations
+  ///
+  ///
+  /// - [type] : VertexaiType (Default: x2)
+  ///
+  ///
+  /// Returns [TransformationData].
+  static TransformationData vertexaiUpscale(
+      {VertexaiType? type = VertexaiType.x2}) {
+    // Call the generated class method
+    return VertexaiUpscale().upscale(type);
   }
 
   // VideoWatermarkRemoval
@@ -670,9 +1001,9 @@ class Transformation {
   /// Video Watermark Removal Plugin
   ///
   /// Returns [TransformationData].
-  static TransformationData videowatermarkremoval() {
+  static TransformationData wmvRemove() {
     // Call the generated class method
-    return VideoWatermarkRemoval().remove();
+    return WmvRemove().remove();
   }
 
   // ViewDetection
@@ -680,52 +1011,68 @@ class Transformation {
   /// Classifies wear type and view type of products in the image
   ///
   /// Returns [TransformationData].
-  static TransformationData viewdetection() {
+  static TransformationData vdDetect() {
     // Call the generated class method
-    return ViewDetection().detect();
+    return VdDetect().detect();
   }
 
   // WatermarkRemoval
 
   /// Watermark Removal Plugin
   ///
-  /// - [removetext] : Remove Text (Default: false)
   ///
-  /// - [removelogo] : Remove Logo (Default: false)
+  /// - [removeText] : Remove Text (Default: false)
+  ///
+  ///
+  ///
+  /// - [removeLogo] : Remove Logo (Default: false)
+  ///
+  ///
   ///
   /// - [box1] : Box 1 (Default: "0_0_100_100")
   ///
+  ///
+  ///
   /// - [box2] : Box 2 (Default: "0_0_0_0")
+  ///
+  ///
   ///
   /// - [box3] : Box 3 (Default: "0_0_0_0")
   ///
+  ///
+  ///
   /// - [box4] : Box 4 (Default: "0_0_0_0")
+  ///
+  ///
   ///
   /// - [box5] : Box 5 (Default: "0_0_0_0")
   ///
+  ///
   /// Returns [TransformationData].
-  static TransformationData watermarkremoval(
-      {bool? removetext = false,
-      bool? removelogo = false,
+  static TransformationData wmRemove(
+      {bool? removeText = false,
+      bool? removeLogo = false,
       String? box1 = "0_0_100_100",
       String? box2 = "0_0_0_0",
       String? box3 = "0_0_0_0",
       String? box4 = "0_0_0_0",
       String? box5 = "0_0_0_0"}) {
     // Call the generated class method
-    return WatermarkRemoval()
-        .remove(removetext, removelogo, box1, box2, box3, box4, box5);
+    return WmRemove()
+        .remove(removeText, removeLogo, box1, box2, box3, box4, box5);
   }
 
   // WatermarkDetection
 
   /// Watermark Detection Plugin
   ///
-  /// - [detecttext] : Detect Text (Default: false)
+  ///
+  /// - [detectText] : Detect Text (Default: false)
+  ///
   ///
   /// Returns [TransformationData].
-  static TransformationData watermarkdetection({bool? detecttext = false}) {
+  static TransformationData wmcDetect({bool? detectText = false}) {
     // Call the generated class method
-    return WatermarkDetection().detect(detecttext);
+    return WmcDetect().detect(detectText);
   }
 }
