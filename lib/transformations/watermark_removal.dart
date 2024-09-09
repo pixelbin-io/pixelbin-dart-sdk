@@ -1,26 +1,40 @@
 import '../transformation_data.dart';
 
-class WatermarkRemoval {
+class WmRemove {
   /// Method for Watermark Removal Plugin
   ///
-  /// - [removetext] : Remove Text (Default: false)
   ///
-  /// - [removelogo] : Remove Logo (Default: false)
+  /// - [removeText] : Remove Text (Default: false)
+  ///
+  ///
+  ///
+  /// - [removeLogo] : Remove Logo (Default: false)
+  ///
+  ///
   ///
   /// - [box1] : Box 1 (Default: "0_0_100_100")
   ///
+  ///
+  ///
   /// - [box2] : Box 2 (Default: "0_0_0_0")
+  ///
+  ///
   ///
   /// - [box3] : Box 3 (Default: "0_0_0_0")
   ///
+  ///
+  ///
   /// - [box4] : Box 4 (Default: "0_0_0_0")
+  ///
+  ///
   ///
   /// - [box5] : Box 5 (Default: "0_0_0_0")
   ///
+  ///
   /// Returns [TransformationData].
   TransformationData remove(
-    bool? removetext,
-    bool? removelogo,
+    bool? removeText,
+    bool? removeLogo,
     String? box1,
     String? box2,
     String? box3,
@@ -31,12 +45,12 @@ class WatermarkRemoval {
 
     var values = <String, String>{};
 
-    if (removetext != null) {
-      values['rem_text'] = removetext.toString();
+    if (removeText != null) {
+      values['rem_text'] = removeText.toString();
     }
 
-    if (removelogo != null) {
-      values['rem_logo'] = removelogo.toString();
+    if (removeLogo != null) {
+      values['rem_logo'] = removeLogo.toString();
     }
 
     if (box1 != null && box1.isNotEmpty) {

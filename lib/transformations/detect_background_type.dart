@@ -1,6 +1,6 @@
 import '../transformation_data.dart';
 
-class DetectBackgroundType {
+class DbtDetect {
   /// Method for Classifies the background of a product as plain, clean or busy
   ///
   /// Returns [TransformationData].

@@ -1,6 +1,6 @@
 import '../transformation_data.dart';
 
-class RemoveBG {
+class RemoveBg {
   /// Method for Remove background from any image
   ///
   /// Returns [TransformationData].

@@ -1,6 +1,3 @@
-/// Pixelbin package.
-///
-/// Pixelbin library helps you integrate Pixelbin with your Dart/Flutter Application.
 library pixelbin;
 
 export 'pixelbin_image.dart';

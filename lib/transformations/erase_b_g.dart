@@ -1,7 +1,7 @@
 import '../transformation_data.dart';
 
 /// Foreground Type options: general, ecommerce, car, human, object
-enum Industrytype {
+enum EraseIndustryType {
   general('general'),
 
   ecommerce('ecommerce'),
@@ -14,38 +14,44 @@ enum Industrytype {
 
   final String value;
 
-  const Industrytype(this.value);
+  const EraseIndustryType(this.value);
 }
 
-class EraseBG {
+class EraseBg {
   /// Method for EraseBG Background Removal Module
   ///
-  /// - [industryptype] : Industry Type (Default: general)
   ///
-  /// - [addshadow] : Add Shadow (Default: false)
+  /// - [industryType] : EraseIndustryType (Default: general)
   ///
-  /// - [refinpe] : Refine (Default: true)
+  ///
+  ///
+  /// - [addShadow] : Add Shadow (Default: false)
+  ///
+  ///
+  ///
+  /// - [refine] : Refine (Default: true)
+  ///
   ///
   /// Returns [TransformationData].
   TransformationData bg(
-    Industrytype? industryptype,
-    bool? addshadow,
-    bool? refinpe,
+    EraseIndustryType? industryType,
+    bool? addShadow,
+    bool? refine,
   ) {
     // Determine if there are values to add to the dictionary
 
     var values = <String, String>{};
 
-    if (industryptype != null) {
-      values['i'] = industryptype.value;
+    if (industryType != null) {
+      values['i'] = industryType.value;
     }
 
-    if (addshadow != null) {
-      values['shadow'] = addshadow.toString();
+    if (addShadow != null) {
+      values['shadow'] = addShadow.toString();
     }
 
-    if (refinpe != null) {
-      values['r'] = refinpe.toString();
+    if (refine != null) {
+      values['r'] = refine.toString();
     }
 
     return TransformationData(plugin: 'erase', name: 'bg', values: values);

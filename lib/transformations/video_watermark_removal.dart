@@ -1,6 +1,6 @@
 import '../transformation_data.dart';
 
-class VideoWatermarkRemoval {
+class WmvRemove {
   /// Method for Video Watermark Removal Plugin
   ///
   /// Returns [TransformationData].

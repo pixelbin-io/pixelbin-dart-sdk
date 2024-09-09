@@ -1,6 +1,6 @@
 import '../transformation_data.dart';
 
-class NumberPlateDetection {
+class NumplateDetect {
   /// Method for Number Plate Detection Plugin
   ///
   /// Returns [TransformationData].

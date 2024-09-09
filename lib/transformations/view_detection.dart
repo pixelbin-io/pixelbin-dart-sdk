@@ -1,6 +1,6 @@
 import '../transformation_data.dart';
 
-class ViewDetection {
+class VdDetect {
   /// Method for Classifies wear type and view type of products in the image
   ///
   /// Returns [TransformationData].
