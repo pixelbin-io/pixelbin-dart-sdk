@@ -54,11 +54,11 @@ class ImagePickerWidgetState extends State<ImagePickerWidget> {
       final fields = {
         // Key:    Value
         "x-pixb-meta-assetdata":
-        "{\"orgId\":5814399,\"type\":\"file\",\"name\":\"filename.jpeg\",\"path\":\"path/to/containing/folder\",\"fileId\":\"path/to/containing/folder/filename.jpeg\",\"format\":\"jpeg\",\"s3Bucket\":\"erase-erase-erasebg-assets\",\"s3Key\":\"uploads/vijay-744d3d/original/71ea75a1-eeb6-41ce-b5a1-093d248dddf9.jpeg\",\"access\":\"public-read\",\"tags\":[\"tag1\",\"tag2\"],\"metadata\":{\"source\":\"signedUrl\",\"publicUploadId\":\"2a2994a1-75ec-42b9-b67f-34a96c514890\"},\"overwrite\":false,\"filenameOverride\":true}"
+            "{\"orgId\":5814399,\"type\":\"file\",\"name\":\"filename.jpeg\",\"path\":\"path/to/containing/folder\",\"fileId\":\"path/to/containing/folder/filename.jpeg\",\"format\":\"jpeg\",\"s3Bucket\":\"erase-erase-erasebg-assets\",\"s3Key\":\"uploads/vijay-744d3d/original/71ea75a1-eeb6-41ce-b5a1-093d248dddf9.jpeg\",\"access\":\"public-read\",\"tags\":[\"tag1\",\"tag2\"],\"metadata\":{\"source\":\"signedUrl\",\"publicUploadId\":\"2a2994a1-75ec-42b9-b67f-34a96c514890\"},\"overwrite\":false,\"filenameOverride\":true}"
       };
       final signedDetails = SignedDetails(
           url:
-          "https://api.pixelbin.io/service/public/assets/v1.0/signed-multipart?pbs=528b02165e18eb713e24137a48b0d2c6f12971139f730166cc407dc386abde26&pbe=1718884967679&pbt=9310166e-34b1-43a7-93a8-e659c371230f&pbo=5814399&pbu=2a2994a1-75ec-42b9-b67f-34a96c514890",
+              "https://api.pixelbin.io/service/public/assets/v1.0/signed-multipart?pbs=528b02165e18eb713e24137a48b0d2c6f12971139f730166cc407dc386abde26&pbe=1718884967679&pbt=9310166e-34b1-43a7-93a8-e659c371230f&pbo=5814399&pbu=2a2994a1-75ec-42b9-b67f-34a96c514890",
           fields: fields);
       final PixelBinImage? uploadResponse = await PixelBin.shared
           .upload(file: _imageFile!, signedDetails: signedDetails);
@@ -117,20 +117,20 @@ class ImagePickerWidgetState extends State<ImagePickerWidget> {
           children: <Widget>[
             _imageFile != null
                 ? Image.file(
-              _imageFile!,
-              height: 300,
-              width: 300,
-            )
+                    _imageFile!,
+                    height: 300,
+                    width: 300,
+                  )
                 : Container(
-              height: 300,
-              width: 300,
-              color: Colors.grey[300],
-              child: Icon(
-                Icons.image,
-                size: 100,
-                color: Colors.grey[700],
-              ),
-            ),
+                    height: 300,
+                    width: 300,
+                    color: Colors.grey[300],
+                    child: Icon(
+                      Icons.image,
+                      size: 100,
+                      color: Colors.grey[700],
+                    ),
+                  ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _pickImage,
