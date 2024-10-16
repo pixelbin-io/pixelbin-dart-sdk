@@ -101,7 +101,7 @@ class Transformation {
       int? left = 10,
       int? height = 50,
       int? width = 20,
-      String? boundingBox = ""}) {
+      String? boundingBox}) {
     return TExtract().extract(top, left, height, width, boundingBox);
   }
 
@@ -248,8 +248,8 @@ class Transformation {
       TGravity? gravity = TGravity.center,
       TBlend? blend = TBlend.over,
       bool? tile = false,
-      String? listOfBboxes = "",
-      String? listOfPolygons = ""}) {
+      String? listOfBboxes,
+      String? listOfPolygons}) {
     return TMerge().merge(mode, image, transformation, background, height,
         width, top, left, gravity, blend, tile, listOfBboxes, listOfPolygons);
   }
@@ -306,7 +306,7 @@ class Transformation {
   /// - [seed] : seed (Default: 123)
   /// Returns [TransformationData].
   static TransformationData bgExtend(
-      {String? boundingBox = "",
+      {String? boundingBox,
       String? prompt = "",
       String? negativePrompt = "",
       double? strength = 0.999,
@@ -547,7 +547,7 @@ class Transformation {
   /// - [shadowIntensity] : Shadow Intensity (Default: 0.5)
   /// Returns [TransformationData].
   static TransformationData shadowGen(
-      {String? backgroundImage = "",
+      {String? backgroundImage,
       String? backgroundColor = "ffffff",
       double? shadowAngle = 120,
       double? shadowIntensity = 0.5}) {
