@@ -1,6 +1,6 @@
-## 1.0.6
+## 1.0.7
 
-- Release version 1.0.6 bring minor changes
+- Release version 1.0.7 bring minor changes
 
 ## 1.0.4
 
