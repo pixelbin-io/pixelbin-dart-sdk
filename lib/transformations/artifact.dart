@@ -5,6 +5,7 @@ class AfRemove {
   /// Returns [TransformationData].
   TransformationData remove() {
     var values = <String, String>{};
+
     return TransformationData(plugin: 'af', name: 'remove', values: values);
   }
 }

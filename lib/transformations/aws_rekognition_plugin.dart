@@ -10,12 +10,14 @@ class AwsrekDetectlabels {
     int? minimumConfidence,
   ) {
     var values = <String, String>{};
+
     if (maximumLabels != null) {
       values['l'] = maximumLabels.toString();
     }
     if (minimumConfidence != null) {
       values['c'] = minimumConfidence.toString();
     }
+
     return TransformationData(
         plugin: 'awsRek', name: 'detectLabels', values: values);
   }
@@ -29,9 +31,11 @@ class AwsrekModeration {
     int? minimumConfidence,
   ) {
     var values = <String, String>{};
+
     if (minimumConfidence != null) {
       values['c'] = minimumConfidence.toString();
     }
+
     return TransformationData(
         plugin: 'awsRek', name: 'moderation', values: values);
   }

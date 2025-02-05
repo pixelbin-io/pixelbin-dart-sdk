@@ -5,6 +5,7 @@ class OcDetect {
   /// Returns [TransformationData].
   TransformationData detect() {
     var values = <String, String>{};
+
     return TransformationData(plugin: 'oc', name: 'detect', values: values);
   }
 }

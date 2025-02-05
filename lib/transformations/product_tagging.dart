@@ -5,6 +5,7 @@ class PrTag {
   /// Returns [TransformationData].
   TransformationData tag() {
     var values = <String, String>{};
+
     return TransformationData(plugin: 'pr', name: 'tag', values: values);
   }
 }

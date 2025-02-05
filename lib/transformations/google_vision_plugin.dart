@@ -8,9 +8,11 @@ class GooglevisDetectlabels {
     int? maximumLabels,
   ) {
     var values = <String, String>{};
+
     if (maximumLabels != null) {
       values['l'] = maximumLabels.toString();
     }
+
     return TransformationData(
         plugin: 'googleVis', name: 'detectLabels', values: values);
   }

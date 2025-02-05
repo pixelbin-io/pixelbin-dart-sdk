@@ -8,6 +8,7 @@ enum IcGravitytowards {
   none('none');
 
   final String value;
+
   const IcGravitytowards(this.value);
 }
 
@@ -24,6 +25,7 @@ enum IcPreferreddirection {
   southEast('south_east');
 
   final String value;
+
   const IcPreferreddirection(this.value);
 }
 
@@ -111,6 +113,7 @@ enum IcObjectType {
   zebra('zebra');
 
   final String value;
+
   const IcObjectType(this.value);
 }
 
@@ -136,6 +139,7 @@ class IcCrop {
     IcObjectType? objectType,
   ) {
     var values = <String, String>{};
+
     if (requiredWidth != null) {
       values['w'] = requiredWidth.toString();
     }
@@ -160,6 +164,7 @@ class IcCrop {
     if (objectType != null) {
       values['obj'] = objectType.value;
     }
+
     return TransformationData(plugin: 'ic', name: 'crop', values: values);
   }
 }

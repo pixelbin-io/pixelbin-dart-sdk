@@ -5,6 +5,7 @@ class VsrUpscale {
   /// Returns [TransformationData].
   TransformationData upscale() {
     var values = <String, String>{};
+
     return TransformationData(plugin: 'vsr', name: 'upscale', values: values);
   }
 }

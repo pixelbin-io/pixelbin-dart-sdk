@@ -14,6 +14,7 @@ class VertexaiGeneratebg {
     int? guidanceScale,
   ) {
     var values = <String, String>{};
+
     if (backgroundPrompt != null) {
       values['p'] = backgroundPrompt.toString();
     }
@@ -26,6 +27,7 @@ class VertexaiGeneratebg {
     if (guidanceScale != null) {
       values['gs'] = guidanceScale.toString();
     }
+
     return TransformationData(
         plugin: 'vertexAi', name: 'generateBG', values: values);
   }
@@ -36,6 +38,7 @@ class VertexaiRemovebg {
   /// Returns [TransformationData].
   TransformationData removeBG() {
     var values = <String, String>{};
+
     return TransformationData(
         plugin: 'vertexAi', name: 'removeBG', values: values);
   }
@@ -47,6 +50,7 @@ enum VertexaiType {
   x4('x4');
 
   final String value;
+
   const VertexaiType(this.value);
 }
 
@@ -58,9 +62,11 @@ class VertexaiUpscale {
     VertexaiType? type,
   ) {
     var values = <String, String>{};
+
     if (type != null) {
       values['t'] = type.value;
     }
+
     return TransformationData(
         plugin: 'vertexAi', name: 'upscale', values: values);
   }

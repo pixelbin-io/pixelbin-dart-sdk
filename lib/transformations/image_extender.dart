@@ -22,6 +22,7 @@ class BgExtend {
     int? seed,
   ) {
     var values = <String, String>{};
+
     if (boundingBox != null) {
       values['bbox'] = boundingBox.toString();
     }
@@ -46,6 +47,7 @@ class BgExtend {
     if (seed != null) {
       values['sd'] = seed.toString();
     }
+
     return TransformationData(plugin: 'bg', name: 'extend', values: values);
   }
 }

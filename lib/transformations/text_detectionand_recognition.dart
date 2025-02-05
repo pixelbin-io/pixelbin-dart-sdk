@@ -8,9 +8,11 @@ class OcrExtract {
     bool? detectOnly,
   ) {
     var values = <String, String>{};
+
     if (detectOnly != null) {
       values['detect_only'] = detectOnly.toString();
     }
+
     return TransformationData(plugin: 'ocr', name: 'extract', values: values);
   }
 }

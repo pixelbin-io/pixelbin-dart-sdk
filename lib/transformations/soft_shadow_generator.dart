@@ -14,6 +14,7 @@ class ShadowGen {
     double? shadowIntensity,
   ) {
     var values = <String, String>{};
+
     if (backgroundImage != null) {
       values['bgi'] = backgroundImage.toString();
     }
@@ -26,6 +27,7 @@ class ShadowGen {
     if (shadowIntensity != null) {
       values['i'] = shadowIntensity.toString();
     }
+
     return TransformationData(plugin: 'shadow', name: 'gen', values: values);
   }
 }

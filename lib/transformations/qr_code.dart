@@ -8,6 +8,7 @@ enum QrQrerrorcorrectionlevel {
   h('H');
 
   final String value;
+
   const QrQrerrorcorrectionlevel(this.value);
 }
 
@@ -21,6 +22,7 @@ enum QrDotsType {
   extraRounded('extra-rounded');
 
   final String value;
+
   const QrDotsType(this.value);
 }
 
@@ -31,6 +33,7 @@ enum QrCornersquareType {
   extraRounded('extra-rounded');
 
   final String value;
+
   const QrCornersquareType(this.value);
 }
 
@@ -40,6 +43,7 @@ enum QrCornerdotsType {
   square('square');
 
   final String value;
+
   const QrCornerdotsType(this.value);
 }
 
@@ -79,6 +83,7 @@ class QrGenerate {
     QrCornerdotsType? cornerDotsType,
   ) {
     var values = <String, String>{};
+
     if (width != null) {
       values['w'] = width.toString();
     }
@@ -124,6 +129,7 @@ class QrGenerate {
     if (cornerDotsType != null) {
       values['cdt'] = cornerDotsType.value;
     }
+
     return TransformationData(plugin: 'qr', name: 'generate', values: values);
   }
 }
@@ -133,6 +139,7 @@ class QrScan {
   /// Returns [TransformationData].
   TransformationData scan() {
     var values = <String, String>{};
+
     return TransformationData(plugin: 'qr', name: 'scan', values: values);
   }
 }

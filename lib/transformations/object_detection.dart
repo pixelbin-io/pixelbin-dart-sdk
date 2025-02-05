@@ -5,6 +5,7 @@ class OdDetect {
   /// Returns [TransformationData].
   TransformationData detect() {
     var values = <String, String>{};
+
     return TransformationData(plugin: 'od', name: 'detect', values: values);
   }
 }

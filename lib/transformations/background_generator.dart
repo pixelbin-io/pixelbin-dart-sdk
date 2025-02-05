@@ -6,6 +6,7 @@ enum GenerateFocus {
   background('Background');
 
   final String value;
+
   const GenerateFocus(this.value);
 }
 
@@ -23,6 +24,7 @@ class GenerateBg {
     int? seed,
   ) {
     var values = <String, String>{};
+
     if (backgroundPrompt != null) {
       values['p'] = backgroundPrompt.toString();
     }
@@ -35,6 +37,7 @@ class GenerateBg {
     if (seed != null) {
       values['s'] = seed.toString();
     }
+
     return TransformationData(plugin: 'generate', name: 'bg', values: values);
   }
 }

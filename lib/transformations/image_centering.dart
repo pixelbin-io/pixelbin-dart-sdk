@@ -8,9 +8,11 @@ class ImcDetect {
     int? distancePercentage,
   ) {
     var values = <String, String>{};
+
     if (distancePercentage != null) {
       values['dist_perc'] = distancePercentage.toString();
     }
+
     return TransformationData(plugin: 'imc', name: 'detect', values: values);
   }
 }

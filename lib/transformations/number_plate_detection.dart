@@ -5,6 +5,7 @@ class NumplateDetect {
   /// Returns [TransformationData].
   TransformationData detect() {
     var values = <String, String>{};
+
     return TransformationData(
         plugin: 'numPlate', name: 'detect', values: values);
   }

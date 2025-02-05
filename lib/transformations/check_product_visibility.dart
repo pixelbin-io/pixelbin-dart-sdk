@@ -5,6 +5,7 @@ class CpvDetect {
   /// Returns [TransformationData].
   TransformationData detect() {
     var values = <String, String>{};
+
     return TransformationData(plugin: 'cpv', name: 'detect', values: values);
   }
 }

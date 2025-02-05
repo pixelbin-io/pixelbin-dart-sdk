@@ -5,6 +5,7 @@ class VdDetect {
   /// Returns [TransformationData].
   TransformationData detect() {
     var values = <String, String>{};
+
     return TransformationData(plugin: 'vd', name: 'detect', values: values);
   }
 }

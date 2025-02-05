@@ -9,6 +9,7 @@ enum TFit {
   outside('outside');
 
   final String value;
+
   const TFit(this.value);
 }
 
@@ -25,6 +26,7 @@ enum TPosition {
   center('center');
 
   final String value;
+
   const TPosition(this.value);
 }
 
@@ -37,6 +39,7 @@ enum TAlgorithm {
   lanczos3('lanczos3');
 
   final String value;
+
   const TAlgorithm(this.value);
 }
 
@@ -60,6 +63,7 @@ class TResize {
     double? dpr,
   ) {
     var values = <String, String>{};
+
     if (height != null) {
       values['h'] = height.toString();
     }
@@ -81,6 +85,7 @@ class TResize {
     if (dpr != null) {
       values['dpr'] = dpr.toString();
     }
+
     return TransformationData(plugin: 't', name: 'resize', values: values);
   }
 }
@@ -93,9 +98,11 @@ class TCompress {
     int? quality,
   ) {
     var values = <String, String>{};
+
     if (quality != null) {
       values['q'] = quality.toString();
     }
+
     return TransformationData(plugin: 't', name: 'compress', values: values);
   }
 }
@@ -108,6 +115,7 @@ enum TBorderType {
   wrap('wrap');
 
   final String value;
+
   const TBorderType(this.value);
 }
 
@@ -131,6 +139,7 @@ class TExtend {
     double? dpr,
   ) {
     var values = <String, String>{};
+
     if (top != null) {
       values['t'] = top.toString();
     }
@@ -152,16 +161,17 @@ class TExtend {
     if (dpr != null) {
       values['dpr'] = dpr.toString();
     }
+
     return TransformationData(plugin: 't', name: 'extend', values: values);
   }
 }
 
 class TExtract {
   /// Method for Basic Transformations
-  /// - [top] : top (Default: 10)
-  /// - [left] : left (Default: 10)
-  /// - [height] : height (Default: 50)
-  /// - [width] : width (Default: 20)
+  /// - [top] : top (Default: 0)
+  /// - [left] : left (Default: 0)
+  /// - [height] : height (Default: 0)
+  /// - [width] : width (Default: 0)
   /// - [boundingBox] : Bounding Box (Default: )
   /// Returns [TransformationData].
   TransformationData extract(
@@ -172,6 +182,7 @@ class TExtract {
     String? boundingBox,
   ) {
     var values = <String, String>{};
+
     if (top != null) {
       values['t'] = top.toString();
     }
@@ -187,6 +198,7 @@ class TExtract {
     if (boundingBox != null) {
       values['bbox'] = boundingBox.toString();
     }
+
     return TransformationData(plugin: 't', name: 'extract', values: values);
   }
 }
@@ -199,9 +211,11 @@ class TTrim {
     int? threshold,
   ) {
     var values = <String, String>{};
+
     if (threshold != null) {
       values['t'] = threshold.toString();
     }
+
     return TransformationData(plugin: 't', name: 'trim', values: values);
   }
 }
@@ -216,12 +230,14 @@ class TRotate {
     String? background,
   ) {
     var values = <String, String>{};
+
     if (angle != null) {
       values['a'] = angle.toString();
     }
     if (background != null && background.isNotEmpty) {
       values['b'] = background;
     }
+
     return TransformationData(plugin: 't', name: 'rotate', values: values);
   }
 }
@@ -231,6 +247,7 @@ class TFlip {
   /// Returns [TransformationData].
   TransformationData flip() {
     var values = <String, String>{};
+
     return TransformationData(plugin: 't', name: 'flip', values: values);
   }
 }
@@ -240,6 +257,7 @@ class TFlop {
   /// Returns [TransformationData].
   TransformationData flop() {
     var values = <String, String>{};
+
     return TransformationData(plugin: 't', name: 'flop', values: values);
   }
 }
@@ -252,9 +270,11 @@ class TSharpen {
     double? sigma,
   ) {
     var values = <String, String>{};
+
     if (sigma != null) {
       values['s'] = sigma.toString();
     }
+
     return TransformationData(plugin: 't', name: 'sharpen', values: values);
   }
 }
@@ -267,9 +287,11 @@ class TMedian {
     int? size,
   ) {
     var values = <String, String>{};
+
     if (size != null) {
       values['s'] = size.toString();
     }
+
     return TransformationData(plugin: 't', name: 'median', values: values);
   }
 }
@@ -284,12 +306,14 @@ class TBlur {
     double? dpr,
   ) {
     var values = <String, String>{};
+
     if (sigma != null) {
       values['s'] = sigma.toString();
     }
     if (dpr != null) {
       values['dpr'] = dpr.toString();
     }
+
     return TransformationData(plugin: 't', name: 'blur', values: values);
   }
 }
@@ -302,9 +326,11 @@ class TFlatten {
     String? background,
   ) {
     var values = <String, String>{};
+
     if (background != null && background.isNotEmpty) {
       values['b'] = background;
     }
+
     return TransformationData(plugin: 't', name: 'flatten', values: values);
   }
 }
@@ -314,6 +340,7 @@ class TNegate {
   /// Returns [TransformationData].
   TransformationData negate() {
     var values = <String, String>{};
+
     return TransformationData(plugin: 't', name: 'negate', values: values);
   }
 }
@@ -323,6 +350,7 @@ class TNormalise {
   /// Returns [TransformationData].
   TransformationData normalise() {
     var values = <String, String>{};
+
     return TransformationData(plugin: 't', name: 'normalise', values: values);
   }
 }
@@ -337,12 +365,14 @@ class TLinear {
     int? b,
   ) {
     var values = <String, String>{};
+
     if (a != null) {
       values['a'] = a.toString();
     }
     if (b != null) {
       values['b'] = b.toString();
     }
+
     return TransformationData(plugin: 't', name: 'linear', values: values);
   }
 }
@@ -359,6 +389,7 @@ class TModulate {
     int? hue,
   ) {
     var values = <String, String>{};
+
     if (brightness != null) {
       values['b'] = brightness.toString();
     }
@@ -368,6 +399,7 @@ class TModulate {
     if (hue != null) {
       values['h'] = hue.toString();
     }
+
     return TransformationData(plugin: 't', name: 'modulate', values: values);
   }
 }
@@ -377,6 +409,7 @@ class TGrey {
   /// Returns [TransformationData].
   TransformationData grey() {
     var values = <String, String>{};
+
     return TransformationData(plugin: 't', name: 'grey', values: values);
   }
 }
@@ -389,9 +422,11 @@ class TTint {
     String? color,
   ) {
     var values = <String, String>{};
+
     if (color != null && color.isNotEmpty) {
       values['c'] = color;
     }
+
     return TransformationData(plugin: 't', name: 'tint', values: values);
   }
 }
@@ -407,6 +442,7 @@ enum TFormat {
   heif('heif');
 
   final String value;
+
   const TFormat(this.value);
 }
 
@@ -431,6 +467,7 @@ enum TQuality {
   low('low');
 
   final String value;
+
   const TQuality(this.value);
 }
 
@@ -444,12 +481,14 @@ class TToformat {
     TQuality? quality,
   ) {
     var values = <String, String>{};
+
     if (format != null) {
       values['f'] = format.value;
     }
     if (quality != null) {
       values['q'] = quality.value;
     }
+
     return TransformationData(plugin: 't', name: 'toFormat', values: values);
   }
 }
@@ -462,9 +501,11 @@ class TDensity {
     int? density,
   ) {
     var values = <String, String>{};
+
     if (density != null) {
       values['d'] = density.toString();
     }
+
     return TransformationData(plugin: 't', name: 'density', values: values);
   }
 }
@@ -476,6 +517,7 @@ enum TMode {
   wrap('wrap');
 
   final String value;
+
   const TMode(this.value);
 }
 
@@ -493,6 +535,7 @@ enum TGravity {
   custom('custom');
 
   final String value;
+
   const TGravity(this.value);
 }
 
@@ -525,6 +568,7 @@ enum TBlend {
   exclusion('exclusion');
 
   final String value;
+
   const TBlend(this.value);
 }
 
@@ -560,6 +604,7 @@ class TMerge {
     String? listOfPolygons,
   ) {
     var values = <String, String>{};
+
     if (mode != null) {
       values['m'] = mode.value;
     }
@@ -599,6 +644,7 @@ class TMerge {
     if (listOfPolygons != null) {
       values['polys'] = listOfPolygons.toString();
     }
+
     return TransformationData(plugin: 't', name: 'merge', values: values);
   }
 }

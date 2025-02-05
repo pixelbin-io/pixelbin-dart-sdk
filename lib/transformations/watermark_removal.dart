@@ -20,6 +20,7 @@ class WmRemove {
     String? box5,
   ) {
     var values = <String, String>{};
+
     if (removeText != null) {
       values['rem_text'] = removeText.toString();
     }
@@ -41,6 +42,7 @@ class WmRemove {
     if (box5 != null && box5.isNotEmpty) {
       values['box5'] = box5;
     }
+
     return TransformationData(plugin: 'wm', name: 'remove', values: values);
   }
 }

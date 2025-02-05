@@ -8,9 +8,11 @@ class NsfwDetect {
     double? minimumConfidence,
   ) {
     var values = <String, String>{};
+
     if (minimumConfidence != null) {
       values['m'] = minimumConfidence.toString();
     }
+
     return TransformationData(plugin: 'nsfw', name: 'detect', values: values);
   }
 }

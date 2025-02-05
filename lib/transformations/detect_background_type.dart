@@ -5,6 +5,7 @@ class DbtDetect {
   /// Returns [TransformationData].
   TransformationData detect() {
     var values = <String, String>{};
+
     return TransformationData(plugin: 'dbt', name: 'detect', values: values);
   }
 }

@@ -14,6 +14,7 @@ class VgGenerate {
     bool? autoscale,
   ) {
     var values = <String, String>{};
+
     if (generateVariationPrompt != null) {
       values['p'] = generateVariationPrompt.toString();
     }
@@ -26,6 +27,7 @@ class VgGenerate {
     if (autoscale != null) {
       values['auto'] = autoscale.toString();
     }
+
     return TransformationData(plugin: 'vg', name: 'generate', values: values);
   }
 }

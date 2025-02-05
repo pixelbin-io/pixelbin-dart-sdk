@@ -7,6 +7,7 @@ enum ImDetector {
   numberPlate('number_plate');
 
   final String value;
+
   const ImDetector(this.value);
 }
 
@@ -17,6 +18,7 @@ enum ImMaskType {
   blur('blur');
 
   final String value;
+
   const ImMaskType(this.value);
 }
 
@@ -32,6 +34,7 @@ class ImMask {
     ImMaskType? maskType,
   ) {
     var values = <String, String>{};
+
     if (replacementImage != null) {
       values['i'] = replacementImage.toString();
     }
@@ -41,6 +44,7 @@ class ImMask {
     if (maskType != null) {
       values['m'] = maskType.value;
     }
+
     return TransformationData(plugin: 'im', name: 'mask', values: values);
   }
 }

@@ -8,9 +8,11 @@ class CosDetect {
     int? objectThresholdPercent,
   ) {
     var values = <String, String>{};
+
     if (objectThresholdPercent != null) {
       values['obj_threshold_perc'] = objectThresholdPercent.toString();
     }
+
     return TransformationData(plugin: 'cos', name: 'detect', values: values);
   }
 }

@@ -2,7 +2,7 @@ import 'transformation_data.dart';
 import 'transformations/detect_background_type.dart';
 import 'transformations/basic.dart';
 import 'transformations/artifact.dart';
-import 'transformations/awsrekognition_plugin.dart';
+import 'transformations/aws_rekognition_plugin.dart';
 import 'transformations/background_generator.dart';
 import 'transformations/image_extender.dart';
 import 'transformations/variation_generator.dart';
@@ -12,7 +12,7 @@ import 'transformations/image_centering.dart';
 import 'transformations/intelligent_crop.dart';
 import 'transformations/intelligent_masking.dart';
 import 'transformations/object_counter.dart';
-import 'transformations/nsfwdetection.dart';
+import 'transformations/nsfw_detection.dart';
 import 'transformations/number_plate_detection.dart';
 import 'transformations/object_detection.dart';
 import 'transformations/check_object_size.dart';
@@ -20,7 +20,7 @@ import 'transformations/text_detectionand_recognition.dart';
 import 'transformations/pdf_watermark_removal.dart';
 import 'transformations/product_tagging.dart';
 import 'transformations/check_product_visibility.dart';
-import 'transformations/qrcode.dart';
+import 'transformations/qr_code.dart';
 import 'transformations/remove_bg.dart';
 import 'transformations/soft_shadow_generator.dart';
 import 'transformations/super_resolution.dart';
@@ -90,17 +90,17 @@ class Transformation {
   }
 
   /// Basic Transformations
-  /// - [top] : top (Default: 10)
-  /// - [left] : left (Default: 10)
-  /// - [height] : height (Default: 50)
-  /// - [width] : width (Default: 20)
+  /// - [top] : top (Default: 0)
+  /// - [left] : left (Default: 0)
+  /// - [height] : height (Default: 0)
+  /// - [width] : width (Default: 0)
   /// - [boundingBox] : Bounding Box (Default: )
   /// Returns [TransformationData].
   static TransformationData tExtract(
-      {int? top = 10,
-      int? left = 10,
-      int? height = 50,
-      int? width = 20,
+      {int? top = 0,
+      int? left = 0,
+      int? height = 0,
+      int? width = 0,
       String? boundingBox}) {
     return TExtract().extract(top, left, height, width, boundingBox);
   }

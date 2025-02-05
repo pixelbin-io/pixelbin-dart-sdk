@@ -5,6 +5,7 @@ class WmvRemove {
   /// Returns [TransformationData].
   TransformationData remove() {
     var values = <String, String>{};
+
     return TransformationData(plugin: 'wmv', name: 'remove', values: values);
   }
 }

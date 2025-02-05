@@ -1,12 +1,14 @@
 import '../transformation_data.dart';
 
-/// Type options: 2x, 4x, 8x
+/// Type options: 1x, 2x, 4x, 8x
 enum SrType {
+  p1x('1x'),
   p2x('2x'),
   p4x('4x'),
   p8x('8x');
 
   final String value;
+
   const SrType(this.value);
 }
 
@@ -16,6 +18,7 @@ enum SrModel {
   flash('Flash');
 
   final String value;
+
   const SrModel(this.value);
 }
 
@@ -33,6 +36,7 @@ class SrUpscale {
     bool? enhanceQuality,
   ) {
     var values = <String, String>{};
+
     if (type != null) {
       values['t'] = type.value;
     }
@@ -45,6 +49,7 @@ class SrUpscale {
     if (enhanceQuality != null) {
       values['enhance_quality'] = enhanceQuality.toString();
     }
+
     return TransformationData(plugin: 'sr', name: 'upscale', values: values);
   }
 }

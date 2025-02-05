@@ -9,6 +9,7 @@ enum EraseIndustryType {
   object('object');
 
   final String value;
+
   const EraseIndustryType(this.value);
 }
 
@@ -24,6 +25,7 @@ class EraseBg {
     bool? refine,
   ) {
     var values = <String, String>{};
+
     if (industryType != null) {
       values['i'] = industryType.value;
     }
@@ -33,6 +35,7 @@ class EraseBg {
     if (refine != null) {
       values['r'] = refine.toString();
     }
+
     return TransformationData(plugin: 'erase', name: 'bg', values: values);
   }
 }

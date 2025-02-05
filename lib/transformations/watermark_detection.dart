@@ -8,9 +8,11 @@ class WmcDetect {
     bool? detectText,
   ) {
     var values = <String, String>{};
+
     if (detectText != null) {
       values['detect_text'] = detectText.toString();
     }
+
     return TransformationData(plugin: 'wmc', name: 'detect', values: values);
   }
 }
