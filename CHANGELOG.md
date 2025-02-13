@@ -1,7 +1,3 @@
-## 1.0.7
-
-- Release version 1.0.7 bring minor changes
-
 ## 1.0.4
 
 - Updated method names and added new methods for transformations.
