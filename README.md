@@ -78,12 +78,12 @@ try {
     }
 ```
 
-| Parameter                                                                | Type    | Description                                                 |
+| Parameter | Type | Description |
 | ------------------------------------------------------------------------ | ------- | ----------------------------------------------------------- |
-| file ([File](https://developer.apple.com/documentation/foundation/file)) | File    | File to upload to Pixelbin                                  |
-| signedDetails (SignedDetails)                                            | Object  | Signed details generated with the Pixelbin Backend SDK      |
-| chunkSize (Int)                                                          | Integer | Size of chunks to be uploaded in KB (default value is 1024) |
-| concurrency (Int)                                                        | Integer | Number of chunks to be uploaded in parallel API calls       |
+| file ([File](https://developer.apple.com/documentation/foundation/file)) | File | File to upload to Pixelbin |
+| signedDetails (SignedDetails) | Object | Signed details generated with the Pixelbin Backend SDK |
+| chunkSize (Int) | Integer | Size of chunks to be uploaded in KB (default value is 1024) |
+| concurrency (Int) | Integer | Number of chunks to be uploaded in parallel API calls |
 
 - Resolves with Image object on success.
 - Rejects with error on failure.
@@ -98,6 +98,7 @@ Classifies the background of a product as plain, clean or busy
 
 ```dart
 final t = Transformation.dbtDetect(
+        
         );
 ```
 
@@ -106,6 +107,7 @@ final t = Transformation.dbtDetect(
 #### 1. tResize(height, width, fit, background, position, algorithm, dpr)
 
 Basic Transformations
+
 | Parameter | Type | Default |
 |-----------|------|---------|
 | height | integer | 0 |
@@ -118,32 +120,292 @@ Basic Transformations
 
 ```dart
 final t = Transformation.tResize(
+        
+        
+        
         height: 0,
+        
+        
         width: 0,
+        
+        
         fit: TFit.cover,
+        
+        
         background: "000000",
+        
+        
         position: TPosition.center,
+        
+        
         algorithm: TAlgorithm.lanczos3,
+        
+        
         dpr: 1
         );
 ```
 
-#### 2. tCompress(quality)
+#### 2. tFlip()
 
 Basic Transformations
+
+```dart
+final t = Transformation.tFlip(
+        
+        );
+```
+
+#### 3. tFlop()
+
+Basic Transformations
+
+```dart
+final t = Transformation.tFlop(
+        
+        );
+```
+
+#### 4. tBlur(sigma, dpr)
+
+Basic Transformations
+
+| Parameter | Type | Default |
+|-----------|------|---------|
+| sigma | float | 1 |
+| dpr | float | 1 |
+
+```dart
+final t = Transformation.tBlur(
+        
+        
+        
+        sigma: 1,
+        
+        
+        dpr: 1
+        );
+```
+
+#### 5. tTrim(threshold)
+
+Basic Transformations
+
+| Parameter | Type | Default |
+|-----------|------|---------|
+| threshold | integer | 10 |
+
+```dart
+final t = Transformation.tTrim(
+        
+        
+        
+        threshold: 10
+        );
+```
+
+#### 6. tRotate(angle, background)
+
+Basic Transformations
+
+| Parameter | Type | Default |
+|-----------|------|---------|
+| angle | integer | 0 |
+| background | color | "000000" |
+
+```dart
+final t = Transformation.tRotate(
+        
+        
+        
+        angle: 0,
+        
+        
+        background: "000000"
+        );
+```
+
+#### 7. tDensity(density)
+
+Basic Transformations
+
+| Parameter | Type | Default |
+|-----------|------|---------|
+| density | integer | 300 |
+
+```dart
+final t = Transformation.tDensity(
+        
+        
+        
+        density: 300
+        );
+```
+
+#### 8. tFlatten(background)
+
+Basic Transformations
+
+| Parameter | Type | Default |
+|-----------|------|---------|
+| background | color | "000000" |
+
+```dart
+final t = Transformation.tFlatten(
+        
+        
+        
+        background: "000000"
+        );
+```
+
+#### 9. tNegate()
+
+Basic Transformations
+
+```dart
+final t = Transformation.tNegate(
+        
+        );
+```
+
+#### 10. tNormalise()
+
+Basic Transformations
+
+```dart
+final t = Transformation.tNormalise(
+        
+        );
+```
+
+#### 11. tGrey()
+
+Basic Transformations
+
+```dart
+final t = Transformation.tGrey(
+        
+        );
+```
+
+#### 12. tTint(color)
+
+Basic Transformations
+
+| Parameter | Type | Default |
+|-----------|------|---------|
+| color | color | "000000" |
+
+```dart
+final t = Transformation.tTint(
+        
+        
+        
+        color: "000000"
+        );
+```
+
+#### 13. tMedian(size)
+
+Basic Transformations
+
+| Parameter | Type | Default |
+|-----------|------|---------|
+| size | integer | 3 |
+
+```dart
+final t = Transformation.tMedian(
+        
+        
+        
+        size: 3
+        );
+```
+
+#### 14. tSharpen(sigma)
+
+Basic Transformations
+
+| Parameter | Type | Default |
+|-----------|------|---------|
+| sigma | float | 1.5 |
+
+```dart
+final t = Transformation.tSharpen(
+        
+        
+        
+        sigma: 1.5
+        );
+```
+
+#### 15. tLinear(a, b)
+
+Basic Transformations
+
+| Parameter | Type | Default |
+|-----------|------|---------|
+| a | integer | 1 |
+| b | integer | 0 |
+
+```dart
+final t = Transformation.tLinear(
+        
+        
+        
+        a: 1,
+        
+        
+        b: 0
+        );
+```
+
+#### 16. tModulate(brightness, saturation, hue)
+
+Basic Transformations
+
+| Parameter | Type | Default |
+|-----------|------|---------|
+| brightness | float | 1 |
+| saturation | float | 1 |
+| hue | integer | 90 |
+
+```dart
+final t = Transformation.tModulate(
+        
+        
+        
+        brightness: 1,
+        
+        
+        saturation: 1,
+        
+        
+        hue: 90
+        );
+```
+
+#### 17. tCompress(quality)
+
+Basic Transformations
+
 | Parameter | Type | Default |
 |-----------|------|---------|
 | quality | integer | 80 |
 
 ```dart
 final t = Transformation.tCompress(
+        
+        
+        
         quality: 80
         );
 ```
 
-#### 3. tExtend(top, left, bottom, right, background, borderType, dpr)
+#### 18. tExtend(top, left, bottom, right, background, borderType, dpr)
 
 Basic Transformations
+
 | Parameter | Type | Default |
 |-----------|------|---------|
 | top | integer | 10 |
@@ -156,212 +418,68 @@ Basic Transformations
 
 ```dart
 final t = Transformation.tExtend(
+        
+        
+        
         top: 10,
+        
+        
         left: 10,
+        
+        
         bottom: 10,
+        
+        
         right: 10,
+        
+        
         background: "000000",
+        
+        
         borderType: TBorderType.constant,
+        
+        
         dpr: 1
         );
 ```
 
-#### 4. tExtract(top, left, height, width, boundingBox)
+#### 19. tExtract(top, left, height, width, boundingBox)
 
 Basic Transformations
+
 | Parameter | Type | Default |
 |-----------|------|---------|
-| top | integer | 10 |
-| left | integer | 10 |
-| height | integer | 50 |
-| width | integer | 20 |
+| top | integer | 0 |
+| left | integer | 0 |
+| height | integer | 0 |
+| width | integer | 0 |
 | boundingBox | bbox | null |
 
 ```dart
 final t = Transformation.tExtract(
-        top: 10,
-        left: 10,
-        height: 50,
-        width: 20,
+        
+        
+        
+        top: 0,
+        
+        
+        left: 0,
+        
+        
+        height: 0,
+        
+        
+        width: 0,
+        
+        
         boundingBox: null
         );
 ```
 
-#### 5. tTrim(threshold)
-
-Basic Transformations
-| Parameter | Type | Default |
-|-----------|------|---------|
-| threshold | integer | 10 |
-
-```dart
-final t = Transformation.tTrim(
-        threshold: 10
-        );
-```
-
-#### 6. tRotate(angle, background)
-
-Basic Transformations
-| Parameter | Type | Default |
-|-----------|------|---------|
-| angle | integer | 0 |
-| background | color | "000000" |
-
-```dart
-final t = Transformation.tRotate(
-        angle: 0,
-        background: "000000"
-        );
-```
-
-#### 7. tFlip()
+#### 20. tToformat(format, quality)
 
 Basic Transformations
 
-```dart
-final t = Transformation.tFlip(
-        );
-```
-
-#### 8. tFlop()
-
-Basic Transformations
-
-```dart
-final t = Transformation.tFlop(
-        );
-```
-
-#### 9. tSharpen(sigma)
-
-Basic Transformations
-| Parameter | Type | Default |
-|-----------|------|---------|
-| sigma | float | 1.5 |
-
-```dart
-final t = Transformation.tSharpen(
-        sigma: 1.5
-        );
-```
-
-#### 10. tMedian(size)
-
-Basic Transformations
-| Parameter | Type | Default |
-|-----------|------|---------|
-| size | integer | 3 |
-
-```dart
-final t = Transformation.tMedian(
-        size: 3
-        );
-```
-
-#### 11. tBlur(sigma, dpr)
-
-Basic Transformations
-| Parameter | Type | Default |
-|-----------|------|---------|
-| sigma | float | 0.3 |
-| dpr | float | 1 |
-
-```dart
-final t = Transformation.tBlur(
-        sigma: 0.3,
-        dpr: 1
-        );
-```
-
-#### 12. tFlatten(background)
-
-Basic Transformations
-| Parameter | Type | Default |
-|-----------|------|---------|
-| background | color | "000000" |
-
-```dart
-final t = Transformation.tFlatten(
-        background: "000000"
-        );
-```
-
-#### 13. tNegate()
-
-Basic Transformations
-
-```dart
-final t = Transformation.tNegate(
-        );
-```
-
-#### 14. tNormalise()
-
-Basic Transformations
-
-```dart
-final t = Transformation.tNormalise(
-        );
-```
-
-#### 15. tLinear(a, b)
-
-Basic Transformations
-| Parameter | Type | Default |
-|-----------|------|---------|
-| a | integer | 1 |
-| b | integer | 0 |
-
-```dart
-final t = Transformation.tLinear(
-        a: 1,
-        b: 0
-        );
-```
-
-#### 16. tModulate(brightness, saturation, hue)
-
-Basic Transformations
-| Parameter | Type | Default |
-|-----------|------|---------|
-| brightness | float | 1 |
-| saturation | float | 1 |
-| hue | integer | 90 |
-
-```dart
-final t = Transformation.tModulate(
-        brightness: 1,
-        saturation: 1,
-        hue: 90
-        );
-```
-
-#### 17. tGrey()
-
-Basic Transformations
-
-```dart
-final t = Transformation.tGrey(
-        );
-```
-
-#### 18. tTint(color)
-
-Basic Transformations
-| Parameter | Type | Default |
-|-----------|------|---------|
-| color | color | "000000" |
-
-```dart
-final t = Transformation.tTint(
-        color: "000000"
-        );
-```
-
-#### 19. tToformat(format, quality)
-
-Basic Transformations
 | Parameter | Type | Default |
 |-----------|------|---------|
 | format | enum`jpeg`, `png`, `webp`, `tiff`, `avif`, `bmp`, `heif` | TFormat.jpeg |
@@ -369,27 +487,20 @@ Basic Transformations
 
 ```dart
 final t = Transformation.tToformat(
+        
+        
+        
         format: TFormat.jpeg,
+        
+        
         quality: TQuality.p75
-        );
-```
-
-#### 20. tDensity(density)
-
-Basic Transformations
-| Parameter | Type | Default |
-|-----------|------|---------|
-| density | integer | 300 |
-
-```dart
-final t = Transformation.tDensity(
-        density: 300
         );
 ```
 
 #### 21. tMerge(mode, image, transformation, background, height, width, top, left, gravity, blend, tile, listOfBboxes, listOfPolygons)
 
 Basic Transformations
+
 | Parameter | Type | Default |
 |-----------|------|---------|
 | mode | enum`overlay`, `underlay`, `wrap` | TMode.overlay |
@@ -408,18 +519,45 @@ Basic Transformations
 
 ```dart
 final t = Transformation.tMerge(
+        
+        
+        
         mode: TMode.overlay,
+        
+        
         image: "",
+        
+        
         transformation: "",
+        
+        
         background: "00000000",
+        
+        
         height: 0,
+        
+        
         width: 0,
+        
+        
         top: 0,
+        
+        
         left: 0,
+        
+        
         gravity: TGravity.center,
+        
+        
         blend: TBlend.over,
+        
+        
         tile: false,
+        
+        
         listOfBboxes: null,
+        
+        
         listOfPolygons: null
         );
 ```
@@ -432,6 +570,7 @@ Artifact Removal Plugin
 
 ```dart
 final t = Transformation.afRemove(
+        
         );
 ```
 
@@ -440,6 +579,7 @@ final t = Transformation.afRemove(
 #### 1. awsrekDetectlabels(maximumLabels, minimumConfidence)
 
 Detect objects and text in images
+
 | Parameter | Type | Default |
 |-----------|------|---------|
 | maximumLabels | integer | 5 |
@@ -447,7 +587,12 @@ Detect objects and text in images
 
 ```dart
 final t = Transformation.awsrekDetectlabels(
+        
+        
+        
         maximumLabels: 5,
+        
+        
         minimumConfidence: 55
         );
 ```
@@ -455,12 +600,16 @@ final t = Transformation.awsrekDetectlabels(
 #### 2. awsrekModeration(minimumConfidence)
 
 Detect objects and text in images
+
 | Parameter | Type | Default |
 |-----------|------|---------|
 | minimumConfidence | integer | 55 |
 
 ```dart
 final t = Transformation.awsrekModeration(
+        
+        
+        
         minimumConfidence: 55
         );
 ```
@@ -470,6 +619,7 @@ final t = Transformation.awsrekModeration(
 #### 1. generateBg(backgroundPrompt, focus, negativePrompt, seed)
 
 AI Background Generator
+
 | Parameter | Type | Default |
 |-----------|------|---------|
 | backgroundPrompt | custom | "YSBmb3Jlc3QgZnVsbCBvZiBvYWsgdHJlZXMsd2l0aCBicmlnaHQgbGlnaHRzLCBzdW4gYW5kIGEgbG90IG9mIG1hZ2ljLCB1bHRyYSByZWFsaXN0aWMsIDhr" |
@@ -479,38 +629,53 @@ AI Background Generator
 
 ```dart
 final t = Transformation.generateBg(
+        
+        
+        
         backgroundPrompt: "YSBmb3Jlc3QgZnVsbCBvZiBvYWsgdHJlZXMsd2l0aCBicmlnaHQgbGlnaHRzLCBzdW4gYW5kIGEgbG90IG9mIG1hZ2ljLCB1bHRyYSByZWFsaXN0aWMsIDhr",
+        
+        
         focus: GenerateFocus.product,
+        
+        
         negativePrompt: "",
+        
+        
         seed: 123
         );
 ```
 
 ### ImageExtender
 
-#### 1. bgExtend(boundingBox, prompt, negativePrompt, strength, guidanceScale, numberOfInferenceSteps, colorAdjust, seed)
+#### 1. bgExtend(boundingBox, prompt, guidanceScale, numberOfInferenceSteps, seed)
 
 AI Image Extender
+
 | Parameter | Type | Default |
 |-----------|------|---------|
 | boundingBox | bbox | null |
 | prompt | custom | "" |
-| negativePrompt | custom | "" |
-| strength | float | 0.999 |
-| guidanceScale | integer | 8 |
-| numberOfInferenceSteps | integer | 10 |
-| colorAdjust | boolean | false |
+| guidanceScale | integer | 30 |
+| numberOfInferenceSteps | integer | 50 |
 | seed | integer | 123 |
 
 ```dart
 final t = Transformation.bgExtend(
+        
+        
+        
         boundingBox: null,
+        
+        
         prompt: "",
-        negativePrompt: "",
-        strength: 0.999,
-        guidanceScale: 8,
-        numberOfInferenceSteps: 10,
-        colorAdjust: false,
+        
+        
+        guidanceScale: 30,
+        
+        
+        numberOfInferenceSteps: 50,
+        
+        
         seed: 123
         );
 ```
@@ -520,6 +685,7 @@ final t = Transformation.bgExtend(
 #### 1. vgGenerate(generateVariationPrompt, noOfVariations, seed, autoscale)
 
 AI Variation Generator
+
 | Parameter | Type | Default |
 |-----------|------|---------|
 | generateVariationPrompt | custom | "" |
@@ -529,9 +695,18 @@ AI Variation Generator
 
 ```dart
 final t = Transformation.vgGenerate(
+        
+        
+        
         generateVariationPrompt: "",
+        
+        
         noOfVariations: 1,
+        
+        
         seed: 0,
+        
+        
         autoscale: true
         );
 ```
@@ -541,6 +716,7 @@ final t = Transformation.vgGenerate(
 #### 1. eraseBg(industryType, addShadow, refine)
 
 EraseBG Background Removal Module
+
 | Parameter | Type | Default |
 |-----------|------|---------|
 | industryType | enum`general`, `ecommerce`, `car`, `human`, `object` | EraseIndustryType.general |
@@ -549,8 +725,15 @@ EraseBG Background Removal Module
 
 ```dart
 final t = Transformation.eraseBg(
+        
+        
+        
         industryType: EraseIndustryType.general,
+        
+        
         addShadow: false,
+        
+        
         refine: true
         );
 ```
@@ -560,12 +743,16 @@ final t = Transformation.eraseBg(
 #### 1. googlevisDetectlabels(maximumLabels)
 
 Detect content and text in images
+
 | Parameter | Type | Default |
 |-----------|------|---------|
 | maximumLabels | integer | 5 |
 
 ```dart
 final t = Transformation.googlevisDetectlabels(
+        
+        
+        
         maximumLabels: 5
         );
 ```
@@ -575,12 +762,16 @@ final t = Transformation.googlevisDetectlabels(
 #### 1. imcDetect(distancePercentage)
 
 Image Centering Module
+
 | Parameter | Type | Default |
 |-----------|------|---------|
 | distancePercentage | integer | 10 |
 
 ```dart
 final t = Transformation.imcDetect(
+        
+        
+        
         distancePercentage: 10
         );
 ```
@@ -590,6 +781,7 @@ final t = Transformation.imcDetect(
 #### 1. icCrop(requiredWidth, requiredHeight, paddingPercentage, maintainOriginalAspect, aspectRatio, gravityTowards, preferredDirection, objectType)
 
 Intelligent Crop Plugin
+
 | Parameter | Type | Default |
 |-----------|------|---------|
 | requiredWidth | integer | 0 |
@@ -603,13 +795,30 @@ Intelligent Crop Plugin
 
 ```dart
 final t = Transformation.icCrop(
+        
+        
+        
         requiredWidth: 0,
+        
+        
         requiredHeight: 0,
+        
+        
         paddingPercentage: 0,
+        
+        
         maintainOriginalAspect: false,
+        
+        
         aspectRatio: "",
+        
+        
         gravityTowards: IcGravitytowards.none,
+        
+        
         preferredDirection: IcPreferreddirection.center,
+        
+        
         objectType: IcObjectType.person
         );
 ```
@@ -619,6 +828,7 @@ final t = Transformation.icCrop(
 #### 1. imMask(replacementImage, detector, maskType)
 
 Intelligent Masking
+
 | Parameter | Type | Default |
 |-----------|------|---------|
 | replacementImage | file | "" |
@@ -627,8 +837,15 @@ Intelligent Masking
 
 ```dart
 final t = Transformation.imMask(
+        
+        
+        
         replacementImage: "",
+        
+        
         detector: ImDetector.numberPlate,
+        
+        
         maskType: ImMaskType.fillBlack
         );
 ```
@@ -641,6 +858,7 @@ Classifies whether objects in the image are single or multiple
 
 ```dart
 final t = Transformation.ocDetect(
+        
         );
 ```
 
@@ -649,12 +867,16 @@ final t = Transformation.ocDetect(
 #### 1. nsfwDetect(minimumConfidence)
 
 Detect NSFW content in images
+
 | Parameter | Type | Default |
 |-----------|------|---------|
 | minimumConfidence | float | 0.5 |
 
 ```dart
 final t = Transformation.nsfwDetect(
+        
+        
+        
         minimumConfidence: 0.5
         );
 ```
@@ -667,6 +889,7 @@ Number Plate Detection Plugin
 
 ```dart
 final t = Transformation.numplateDetect(
+        
         );
 ```
 
@@ -678,6 +901,7 @@ Detect bounding boxes of objects in the image
 
 ```dart
 final t = Transformation.odDetect(
+        
         );
 ```
 
@@ -686,12 +910,16 @@ final t = Transformation.odDetect(
 #### 1. cosDetect(objectThresholdPercent)
 
 Calculates the percentage of the main object area relative to image dimensions.
+
 | Parameter | Type | Default |
 |-----------|------|---------|
 | objectThresholdPercent | integer | 50 |
 
 ```dart
 final t = Transformation.cosDetect(
+        
+        
+        
         objectThresholdPercent: 50
         );
 ```
@@ -701,12 +929,16 @@ final t = Transformation.cosDetect(
 #### 1. ocrExtract(detectOnly)
 
 OCR Module
+
 | Parameter | Type | Default |
 |-----------|------|---------|
 | detectOnly | boolean | false |
 
 ```dart
 final t = Transformation.ocrExtract(
+        
+        
+        
         detectOnly: false
         );
 ```
@@ -719,6 +951,7 @@ PDF Watermark Removal Plugin
 
 ```dart
 final t = Transformation.pwrRemove(
+        
         );
 ```
 
@@ -730,6 +963,7 @@ AI Product Tagging
 
 ```dart
 final t = Transformation.prTag(
+        
         );
 ```
 
@@ -741,6 +975,7 @@ Classifies whether the product in the image is completely visible or not
 
 ```dart
 final t = Transformation.cpvDetect(
+        
         );
 ```
 
@@ -749,6 +984,7 @@ final t = Transformation.cpvDetect(
 #### 1. qrGenerate(width, height, image, margin, qRTypeNumber, qrErrorCorrectionLevel, imageSize, imageMargin, dotsColor, dotsType, dotsBgColor, cornerSquareColor, cornerSquareType, cornerDotsColor, cornerDotsType)
 
 QRCode Plugin
+
 | Parameter | Type | Default |
 |-----------|------|---------|
 | width | integer | 300 |
@@ -769,20 +1005,51 @@ QRCode Plugin
 
 ```dart
 final t = Transformation.qrGenerate(
+        
+        
+        
         width: 300,
+        
+        
         height: 300,
+        
+        
         image: "",
+        
+        
         margin: 0,
+        
+        
         qRTypeNumber: 0,
+        
+        
         qrErrorCorrectionLevel: QrQrerrorcorrectionlevel.q,
+        
+        
         imageSize: 0.4,
+        
+        
         imageMargin: 0,
+        
+        
         dotsColor: "000000",
+        
+        
         dotsType: QrDotsType.square,
+        
+        
         dotsBgColor: "ffffff",
+        
+        
         cornerSquareColor: "000000",
+        
+        
         cornerSquareType: QrCornersquareType.square,
+        
+        
         cornerDotsColor: "000000",
+        
+        
         cornerDotsType: QrCornerdotsType.dot
         );
 ```
@@ -793,6 +1060,7 @@ QRCode Plugin
 
 ```dart
 final t = Transformation.qrScan(
+        
         );
 ```
 
@@ -804,6 +1072,7 @@ Remove background from any image
 
 ```dart
 final t = Transformation.removeBg(
+        
         );
 ```
 
@@ -812,6 +1081,7 @@ final t = Transformation.removeBg(
 #### 1. shadowGen(backgroundImage, backgroundColor, shadowAngle, shadowIntensity)
 
 AI Soft Shadow Generator
+
 | Parameter | Type | Default |
 |-----------|------|---------|
 | backgroundImage | file | null |
@@ -821,9 +1091,18 @@ AI Soft Shadow Generator
 
 ```dart
 final t = Transformation.shadowGen(
+        
+        
+        
         backgroundImage: null,
+        
+        
         backgroundColor: "ffffff",
+        
+        
         shadowAngle: 120,
+        
+        
         shadowIntensity: 0.5
         );
 ```
@@ -833,18 +1112,28 @@ final t = Transformation.shadowGen(
 #### 1. srUpscale(type, enhanceFace, model, enhanceQuality)
 
 Super Resolution Module
+
 | Parameter | Type | Default |
 |-----------|------|---------|
-| type | enum`2x`, `4x`, `8x` | SrType.p2x |
+| type | enum`1x`, `2x`, `4x`, `8x` | SrType.p2x |
 | enhanceFace | boolean | false |
 | model | enum`Picasso`, `Flash` | SrModel.picasso |
 | enhanceQuality | boolean | false |
 
 ```dart
 final t = Transformation.srUpscale(
+        
+        
+        
         type: SrType.p2x,
+        
+        
         enhanceFace: false,
+        
+        
         model: SrModel.picasso,
+        
+        
         enhanceQuality: false
         );
 ```
@@ -854,6 +1143,7 @@ final t = Transformation.srUpscale(
 #### 1. vertexaiGeneratebg(backgroundPrompt, negativePrompt, seed, guidanceScale)
 
 Vertex AI based transformations
+
 | Parameter | Type | Default |
 |-----------|------|---------|
 | backgroundPrompt | custom | "YSBmb3Jlc3QgZnVsbCBvZiBvYWsgdHJlZXMsd2l0aCBicmlnaHQgbGlnaHRzLCBzdW4gYW5kIGEgbG90IG9mIG1hZ2ljLCB1bHRyYSByZWFsaXN0aWMsIDhr" |
@@ -863,9 +1153,18 @@ Vertex AI based transformations
 
 ```dart
 final t = Transformation.vertexaiGeneratebg(
+        
+        
+        
         backgroundPrompt: "YSBmb3Jlc3QgZnVsbCBvZiBvYWsgdHJlZXMsd2l0aCBicmlnaHQgbGlnaHRzLCBzdW4gYW5kIGEgbG90IG9mIG1hZ2ljLCB1bHRyYSByZWFsaXN0aWMsIDhr",
+        
+        
         negativePrompt: "",
+        
+        
         seed: 22,
+        
+        
         guidanceScale: 60
         );
 ```
@@ -876,18 +1175,23 @@ Vertex AI based transformations
 
 ```dart
 final t = Transformation.vertexaiRemovebg(
+        
         );
 ```
 
 #### 3. vertexaiUpscale(type)
 
 Vertex AI based transformations
+
 | Parameter | Type | Default |
 |-----------|------|---------|
 | type | enum`x2`, `x4` | VertexaiType.x2 |
 
 ```dart
 final t = Transformation.vertexaiUpscale(
+        
+        
+        
         type: VertexaiType.x2
         );
 ```
@@ -900,6 +1204,7 @@ Video Watermark Removal Plugin
 
 ```dart
 final t = Transformation.wmvRemove(
+        
         );
 ```
 
@@ -911,6 +1216,7 @@ Video Upscaler Plugin
 
 ```dart
 final t = Transformation.vsrUpscale(
+        
         );
 ```
 
@@ -922,6 +1228,7 @@ Classifies wear type and view type of products in the image
 
 ```dart
 final t = Transformation.vdDetect(
+        
         );
 ```
 
@@ -930,6 +1237,7 @@ final t = Transformation.vdDetect(
 #### 1. wmRemove(removeText, removeLogo, box1, box2, box3, box4, box5)
 
 Watermark Removal Plugin
+
 | Parameter | Type | Default |
 |-----------|------|---------|
 | removeText | boolean | false |
@@ -942,12 +1250,27 @@ Watermark Removal Plugin
 
 ```dart
 final t = Transformation.wmRemove(
+        
+        
+        
         removeText: false,
+        
+        
         removeLogo: false,
+        
+        
         box1: "0_0_100_100",
+        
+        
         box2: "0_0_0_0",
+        
+        
         box3: "0_0_0_0",
+        
+        
         box4: "0_0_0_0",
+        
+        
         box5: "0_0_0_0"
         );
 ```
@@ -957,12 +1280,16 @@ final t = Transformation.wmRemove(
 #### 1. wmcDetect(detectText)
 
 Watermark Detection Plugin
+
 | Parameter | Type | Default |
 |-----------|------|---------|
 | detectText | boolean | false |
 
 ```dart
 final t = Transformation.wmcDetect(
+        
+        
+        
         detectText: false
         );
 ```
